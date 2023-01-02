@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Icon Cart Icon renders number of items 1`] = `
+<div
+  class="cart-icon"
+  data-testid="cart-icon"
+>
+  <img
+    alt="Cart"
+    src="./resources/images/cart.png"
+  />
+  <div
+    class="goods-number"
+  />
+</div>
+`;
