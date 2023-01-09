@@ -1,0 +1,23 @@
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.homepage-intro {
+    background: url("./homepage-pattern.png");
+    background-repeat: repeat;
+    max-width: 100%;
+    max-height: 250px;
+    padding: 55px 70px;
+}
+
+.homepage-intro_description {
+    max-width: 580px;
+    font-size: 24px;
+}

@@ -1,8 +1,3 @@
-img {
-    filter: invert(7%) sepia(12%) saturate(353%) hue-rotate(22deg) brightness(95%) contrast(87%);
-    -webkit-filter: invert(7%) sepia(12%) saturate(353%) hue-rotate(22deg) brightness(95%) contrast(87%);
-}
-
 .cart-icon {
     position: relative;
     bottom: -4px;

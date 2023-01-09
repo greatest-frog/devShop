@@ -2,8 +2,9 @@ nav {
     padding: 10px 30px;
     border-bottom: 1px solid #b3a9a9;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 70px;
 }
 
 h1 {
@@ -21,5 +22,5 @@ a {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
