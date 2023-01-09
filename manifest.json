@@ -1,0 +1,20 @@
+{
+  "short_name": "devShop",
+  "name": "devShop homepage",
+  "icons": [
+    {
+      "src": "page-icons/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "page-icons/logo100.png",
+      "type": "image/png",
+      "sizes": "100x100"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1f1f1d",
+  "background_color": "#f5f5f5"
+}
