@@ -33,7 +33,10 @@ const GoodCard = ({ data }) => {
         </div>
         {/* TODO onClick function */}
         <button className="btn_add-to-cart">
-          <img src="./shop/resources/images/cart-plus.png" alt="add to cart" />
+          <img
+            src="https://greatest-frog.github.io/shop/resources/images/cart-plus.png"
+            alt="add to cart"
+          />
         </button>
       </div>
     </div>

@@ -3,11 +3,26 @@ import "./Rating.css";
 const Rating = ({ rating }) => {
   const getStar = (rating) => {
     if (rating >= 1) {
-      return <img src="./shop/resources/images/star.png" alt="" />;
+      return (
+        <img
+          src="https://greatest-frog.github.io/shop/resources/images/star.png"
+          alt=""
+        />
+      );
     } else if (rating >= 0.5) {
-      return <img src="./shop/resources/images/half-star.png" alt="" />;
+      return (
+        <img
+          src="https://greatest-frog.github.io/shop/resources/images/half-star.png"
+          alt=""
+        />
+      );
     }
-    return <img src="./shop/resources/images/unfilled-star.png" alt="" />;
+    return (
+      <img
+        src="https://greatest-frog.github.io/shop/resources/images/unfilled-star.png"
+        alt=""
+      />
+    );
   };
   return (
     <div className="rating">
