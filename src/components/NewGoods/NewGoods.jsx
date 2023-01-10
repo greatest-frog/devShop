@@ -52,7 +52,7 @@ const NewGoods = ({ goods }) => {
             }}
             className="btn_mover"
           >
-            <img src="./resources/images/mover-left.png" alt="" />
+            <img src="./shop/resources/images/mover-left.png" alt="" />
           </button>
         </div>
       )}
@@ -64,7 +64,7 @@ const NewGoods = ({ goods }) => {
             }}
             className="btn_mover"
           >
-            <img src="./resources/images/mover-right.png" alt="" />
+            <img src="./shop/resources/images/mover-right.png" alt="" />
           </button>
         </div>
       )}

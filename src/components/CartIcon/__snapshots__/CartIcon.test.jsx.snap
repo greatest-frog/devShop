@@ -7,7 +7,7 @@ exports[`Cart Icon Cart Icon renders number of items 1`] = `
 >
   <img
     alt="Cart"
-    src="./resources/images/cart.png"
+    src="./shop/resources/images/cart.png"
   />
   <div
     class="goods-number"
