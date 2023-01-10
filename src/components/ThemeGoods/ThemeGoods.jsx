@@ -1,6 +1,6 @@
 import { useState } from "react";
 import GoodCard from "../GoodCard/GoodCard";
-import "./NewGoods.css";
+import "./ThemeGoods.css";
 
 const filter = (obj, rule) => {
   const filtered = {};
@@ -20,14 +20,14 @@ const map = (obj, rule) => {
   return mapped;
 };
 
-const NewGoods = ({ goods }) => {
+const ThemeGoods = ({ goods, name }) => {
   const [position, setPosition] = useState(0);
   return (
-    <div className="new-goods">
-      <h3>New</h3>
-      <ul className="new-goods_list list">
+    <div className="theme-goods">
+      <h3>{name}</h3>
+      <ul className="theme-goods_list list">
         {map(
-          filter(goods, (good) => good.special.has("new")),
+          filter(goods, (good) => good.special.has(name.toLowerCase())),
           (data, key) => (
             <li
               key={key}
@@ -78,4 +78,4 @@ const NewGoods = ({ goods }) => {
   );
 };
 
-export default NewGoods;
+export default ThemeGoods;

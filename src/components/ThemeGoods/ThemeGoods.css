@@ -1,9 +1,9 @@
-.new-goods {
+.theme-goods {
     position: relative;
     padding: 10px;
 }
 
-.new-goods_list {
+.theme-goods_list {
     overflow: hidden;
     list-style: none;
     padding: 10px;
@@ -11,7 +11,7 @@
     gap: 12px;
 }
 
-.new-goods_list li {
+.theme-goods_list li {
     position: relative;
     transition: 0.35s ease-in;
 }

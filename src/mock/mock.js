@@ -36,7 +36,7 @@ const goods = {
     series: "RTX",
     generation: "RTX 30",
     model: "3070 Ti",
-    special: new Set(["new", "sale"]),
+    special: new Set(["new"]),
     manufacturer: "Gigabyte",
     description:
       "NVIDIA Ampere Streaming Multiprocessors 2nd Generation RT Cores 3rd Generation Tensor Cores Powered by GeForce RTX 3070 Ti Integrated with 8GB GDDR6X 256-bit memory interface WINDFORCE 3X Cooling System with alternate spinning fans RGB Fusion 2.0 Protection metal back plate 2x HDMI 2.1, 2x DisplayPort 1.4 Core Clock: 1830 MHz. Get the ultimate gaming performance with AORUS RTX 3070 Ti Graphics Cards.",

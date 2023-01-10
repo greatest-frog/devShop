@@ -1,4 +1,4 @@
-import NewGoods from "../NewGoods/NewGoods";
+import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
 const HomePage = ({ goods }) => {
@@ -11,7 +11,8 @@ const HomePage = ({ goods }) => {
           and low prices.
         </div>
       </div>
-      <NewGoods goods={goods} />
+      <ThemeGoods goods={goods} name="New" />
+      <ThemeGoods goods={goods} name="Sale" />
     </div>
   );
 };
