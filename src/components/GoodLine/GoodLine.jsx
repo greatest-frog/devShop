@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import { average } from "../../objectFunctions";
 import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
-import "./GoodCard.css";
+import "./GoodLine.css";
 
-const GoodCard = ({ data }) => {
+const GoodLine = ({ data }) => {
   return (
-    <div className="good-card">
-      <Link to={`/shop/${data.id}`} className="good-card_photo-link">
-        <img src={data.src} alt={data.name} className="good-card_icon" />
+    <div className="good-line">
+      <Link to={`/shop/${data.id}`} className="good-line_photo-link">
+        <img src={data.src} alt={data.name} className="good-line_icon" />
       </Link>
-      <div className="good-card_info">
+      <div className="good-line_info">
         <div className="product-name">
           <Link to={`/shop/${data.id}`}>{data.name}</Link>
         </div>
         <div className="product-rating">
-          <Rating rating={average(data.reviews, (element) => element.rating)} number={Object.getOwnPropertyNames(data.reviews).length}/>
+          <Rating rating={average(data.reviews, (element) => element.rating)} number={Object.getOwnPropertyNames(data.reviews).length} />
         </div>
         <div className="product-prices">
           {data.previousPrice !== undefined && (
@@ -30,4 +30,4 @@ const GoodCard = ({ data }) => {
   );
 };
 
-export default GoodCard;
+export default GoodLine;

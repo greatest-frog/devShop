@@ -9,6 +9,7 @@ const goods = {
     generation: "RTX 40",
     model: "4090",
     special: new Set(["new", "sale"]),
+    date: "2022-12-06",
     manufacturer: "MSI",
     description:
       "The NVIDIA GeForce RTX 4090 is the ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics. Experience ultra-high performance gaming, incredibly detailed virtual worlds with ray tracing, unprecedented productivity, and new ways to create. It’s powered by the NVIDIA Ada Lovelace architecture and comes with 24 GB of G6X memory to deliver the ultimate experience for gamers and creators.",
@@ -37,6 +38,7 @@ const goods = {
     generation: "RTX 30",
     model: "3070 Ti",
     special: new Set(["new"]),
+    date: "2022-10-17",
     manufacturer: "Gigabyte",
     description:
       "NVIDIA Ampere Streaming Multiprocessors 2nd Generation RT Cores 3rd Generation Tensor Cores Powered by GeForce RTX 3070 Ti Integrated with 8GB GDDR6X 256-bit memory interface WINDFORCE 3X Cooling System with alternate spinning fans RGB Fusion 2.0 Protection metal back plate 2x HDMI 2.1, 2x DisplayPort 1.4 Core Clock: 1830 MHz. Get the ultimate gaming performance with AORUS RTX 3070 Ti Graphics Cards.",
@@ -64,6 +66,7 @@ const goods = {
     generation: "Ryzen 5000",
     model: "5600X",
     special: new Set(["new"]),
+    date: "2022-12-07",
     manufacturer: "AMD",
     description:
       "Be unstoppable with the unprecedented speed of the world’s best desktop processors. AMD Ryzen 5000 Series processors deliver the ultimate in high performance, whether you’re playing the latest games, designing the next skyscraper or crunching scientific data. With AMD Ryzen, you’re always in the lead.",
@@ -90,6 +93,7 @@ const goods = {
     series: "Dark Power Pro 12",
     certificate: "80 PLUS Titanium",
     special: new Set(["new"]),
+    date: "2021-09-05",
     manufacturer: "be quiet!",
     description:
       "The be quiet! Dark Power Pro 12 1500W offers 80 PLUS Titanium efficiency and world class performance due to fully digital control and frameless fan concept. The most technologically-advanced PSU be quiet! has ever built.",

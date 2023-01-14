@@ -1,0 +1,67 @@
+.shop_info {
+    margin-bottom: 20px;
+}
+
+.shop_info_line {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+}
+
+.shop_tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn_form-changer {
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    border: none;
+}
+
+.btn_form-changer svg {
+    fill: #1f1f1d;
+}
+
+.btn_filter {
+    color: #1f1f1d;
+    font-size: 24px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.disabled {
+    display: none;
+}
+
+.shop_items {
+    list-style: none;
+}
+
+.shop_items.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    justify-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.shop_items.lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#sorting {
+    height: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+}

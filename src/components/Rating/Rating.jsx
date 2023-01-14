@@ -1,6 +1,6 @@
 import "./Rating.css";
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, number }) => {
   const getStar = (rating) => {
     if (rating >= 1) {
       return (
@@ -33,7 +33,7 @@ const Rating = ({ rating }) => {
         {getStar(rating - 3)}
         {getStar(rating - 4)}
       </div>
-      <div className="rating_numeric">{`${rating}/5`}</div>
+      <div className="reviews_number">{`${number}`}</div>
     </div>
   );
 };
