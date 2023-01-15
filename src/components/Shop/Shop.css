@@ -61,7 +61,10 @@
 }
 
 #sorting {
-    height: 24px;
+    font-family: inherit;
     font-weight: bold;
+    height: 24px;
+    padding-left: 5px;
+    border: 1px solid #767667;
     border-radius: 10px;
 }
