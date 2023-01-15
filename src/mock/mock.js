@@ -13,8 +13,8 @@ const goods = {
     manufacturer: "MSI",
     description:
       "The NVIDIA GeForce RTX 4090 is the ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics. Experience ultra-high performance gaming, incredibly detailed virtual worlds with ray tracing, unprecedented productivity, and new ways to create. It’s powered by the NVIDIA Ada Lovelace architecture and comes with 24 GB of G6X memory to deliver the ultimate experience for gamers and creators.",
-    price: "2200",
-    previousPrice: "2300",
+    price: 2200,
+    previousPrice: 2300,
     currency: "$",
     release: "2022",
     src: "https://greatest-frog.github.io/shop/resources/images/products/msi-nvidia-geforce-rtx-4090.png",
@@ -42,7 +42,7 @@ const goods = {
     manufacturer: "Gigabyte",
     description:
       "NVIDIA Ampere Streaming Multiprocessors 2nd Generation RT Cores 3rd Generation Tensor Cores Powered by GeForce RTX 3070 Ti Integrated with 8GB GDDR6X 256-bit memory interface WINDFORCE 3X Cooling System with alternate spinning fans RGB Fusion 2.0 Protection metal back plate 2x HDMI 2.1, 2x DisplayPort 1.4 Core Clock: 1830 MHz. Get the ultimate gaming performance with AORUS RTX 3070 Ti Graphics Cards.",
-    price: "1000",
+    price: 1000,
     currency: "$",
     release: "2021",
     src: "https://greatest-frog.github.io/shop/resources/images/products/gigabyte-nvidia-geforce-rtx-3070-ti.jpg",
@@ -70,7 +70,7 @@ const goods = {
     manufacturer: "AMD",
     description:
       "Be unstoppable with the unprecedented speed of the world’s best desktop processors. AMD Ryzen 5000 Series processors deliver the ultimate in high performance, whether you’re playing the latest games, designing the next skyscraper or crunching scientific data. With AMD Ryzen, you’re always in the lead.",
-    price: "230",
+    price: 230,
     currency: "$",
     release: "2020",
     src: "https://greatest-frog.github.io/shop/resources/images/products/amd-ryzen-5-5600x-box.png",
@@ -97,7 +97,7 @@ const goods = {
     manufacturer: "be quiet!",
     description:
       "The be quiet! Dark Power Pro 12 1500W offers 80 PLUS Titanium efficiency and world class performance due to fully digital control and frameless fan concept. The most technologically-advanced PSU be quiet! has ever built.",
-    price: "380",
+    price: 380,
     currency: "$",
     release: "2022",
     src: "https://greatest-frog.github.io/shop/resources/images/products/be-quiet-dark-power-pro-12-1500w.png",
@@ -125,8 +125,8 @@ const goods = {
     manufacturer: "PowerColor",
     description:
       "Powercolor Fighter Amd Radeon Rx 6600 Graphics Card With 8Gb Gddr6 Memory.",
-    price: "310",
-    previousPrice: "330",
+    price: 310,
+    previousPrice: 330,
     currency: "$",
     release: "2021",
     src: "https://greatest-frog.github.io/shop/resources/images/products/powercolor-amd-radeon-rx-6600.png",
@@ -153,7 +153,7 @@ const goods = {
     manufacturer: "ASUS",
     description:
       "Powercolor Fighter Amd Radeon Rx 6600 Graphics Card With 8Gb Gddr6 Memory.",
-    price: "1000",
+    price: 1000,
     currency: "$",
     release: "2020",
     src: "https://greatest-frog.github.io/shop/resources/images/products/asus-amd-radeon-rx-6800-xt.png",

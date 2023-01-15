@@ -1,5 +1,7 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { filter, map } from "../../objectFunctions";
+
 import GoodCard from "../GoodCard/GoodCard";
 import "./ThemeGoods.css";
 
@@ -61,6 +63,15 @@ const ThemeGoods = ({ goods, name }) => {
       )}
     </div>
   );
+};
+
+ThemeGoods.propTypes = {
+  goods: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    )
+  ),
+  name: PropTypes.string,
 };
 
 export default ThemeGoods;

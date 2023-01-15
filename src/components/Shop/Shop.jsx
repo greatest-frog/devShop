@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { average, filter } from "../../objectFunctions";
 
 import Filter from "../Filter/Filter";
@@ -30,6 +31,7 @@ const merge = (a, b, comp) => {
   return arr;
 };
 
+// merge sort
 const sorted = (arr, comp = () => 1) => {
   if (arr.length <= 1) {
     return arr;
@@ -41,6 +43,7 @@ const sorted = (arr, comp = () => 1) => {
   );
 };
 
+//sort comparators
 const sorts = {
   featured: (a, b) => 1,
   byDate: (a, b) => {
@@ -101,19 +104,19 @@ const sorts = {
 };
 
 const Shop = ({ goods }) => {
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState({});
   const [form, setForm] = useState("cards");
   const [filtering, setFiltering] = useState(false);
   const [sorting, setSorting] = useState("featured");
 
-  const fitCategories = (obj) => {
-    for (const filter of filters) {
-      if (filter[0] === "special") {
-        if (obj.hasOwnProperty("special") && obj.special.has(filter[1])) {
+  const fitFilters = (obj) => {
+    for (const [filterProp, value] of Object.entries(filters)) {
+      if (filterProp === "special") {
+        if (obj.hasOwnProperty("special") && obj.special.has(value)) {
           continue;
         }
       } else {
-        if (obj.hasOwnProperty(filter[0]) && obj[filter[0]] === filter[1]) {
+        if (obj.hasOwnProperty(filterProp) && obj[filterProp] === value) {
           continue;
         }
       }
@@ -262,14 +265,18 @@ const Shop = ({ goods }) => {
               className="btn_filter"
             >
               Filters
-              {filtering && <img src="./resources/images/arrow-up.png" alt="" />}
-              {!filtering && <img src="./resources/images/arrow-down.png" alt="" />}
+              {filtering && (
+                <img src="./resources/images/arrow-up.png" alt="" />
+              )}
+              {!filtering && (
+                <img src="./resources/images/arrow-down.png" alt="" />
+              )}
             </button>
           </div>
         </div>
         <Filter
-          categories={filters}
-          setCategories={setFilters}
+          filters={filters}
+          setFilters={setFilters}
           className={`${!filtering ? "disabled" : ""}`}
         />
       </div>
@@ -277,7 +284,7 @@ const Shop = ({ goods }) => {
       <ul className={`shop_items ${form === "cards" ? "cards" : "lines"} list`}>
         {form === "cards" &&
           sorted(
-            Object.entries(filter(goods, (good) => fitCategories(good))).map(
+            Object.entries(filter(goods, (good) => fitFilters(good))).map(
               (ent) => ent[1]
             ),
             sorts[sorting]
@@ -288,7 +295,7 @@ const Shop = ({ goods }) => {
           ))}
         {form === "lines" &&
           sorted(
-            Object.entries(filter(goods, (good) => fitCategories(good))).map(
+            Object.entries(filter(goods, (good) => fitFilters(good))).map(
               (ent) => ent[1]
             ),
             sorts[sorting]
@@ -301,4 +308,13 @@ const Shop = ({ goods }) => {
     </div>
   );
 };
+
+Shop.propTypes = {
+  goods: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    )
+  ),
+};
+
 export default Shop;

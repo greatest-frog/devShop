@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./components/HomePage/HomePage";
@@ -20,5 +21,13 @@ function App({ goods }) {
     </div>
   );
 }
+
+App.propTypes = {
+  goods: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    )
+  ),
+};
 
 export default App;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "./Rating.css";
 
 const Rating = ({ rating, number }) => {
@@ -36,6 +38,11 @@ const Rating = ({ rating, number }) => {
       <div className="reviews_number">{`${number}`}</div>
     </div>
   );
+};
+
+Rating.propTypes = {
+  rating: PropTypes.number,
+  number: PropTypes.number,
 };
 
 export default Rating;

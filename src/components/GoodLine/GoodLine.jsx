@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { average } from "../../objectFunctions";
 import Rating from "../Rating/Rating";
@@ -16,7 +17,10 @@ const GoodLine = ({ data }) => {
           <Link to={`/shop/${data.id}`}>{data.name}</Link>
         </div>
         <div className="product-rating">
-          <Rating rating={average(data.reviews, (element) => element.rating)} number={Object.getOwnPropertyNames(data.reviews).length} />
+          <Rating
+            rating={average(data.reviews, (element) => element.rating)}
+            number={Object.getOwnPropertyNames(data.reviews).length}
+          />
         </div>
         <div className="product-prices">
           {data.previousPrice !== undefined && (
@@ -28,6 +32,12 @@ const GoodLine = ({ data }) => {
       </div>
     </div>
   );
+};
+
+GoodLine.propTypes = {
+  data: PropTypes.objectOf(
+    PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+  ),
 };
 
 export default GoodLine;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "./CartIcon.css";
 
 const CartIcon = ({ goodsNumber }) => {
@@ -10,6 +12,10 @@ const CartIcon = ({ goodsNumber }) => {
       <div className="goods-number">{goodsNumber}</div>
     </div>
   );
+};
+
+CartIcon.propTypes = {
+  goodsNumber: PropTypes.number,
 };
 
 export default CartIcon;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
@@ -15,6 +17,14 @@ const HomePage = ({ goods }) => {
       <ThemeGoods goods={goods} name="Sale" />
     </div>
   );
+};
+
+HomePage.propTypes = {
+  goods: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    )
+  ),
 };
 
 export default HomePage;
