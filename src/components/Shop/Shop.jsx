@@ -111,16 +111,46 @@ const Shop = ({ goods }) => {
 
   const fitFilters = (obj) => {
     for (const [filterProp, value] of Object.entries(filters)) {
+      let pass = false;
       if (filterProp === "special") {
-        if (obj.hasOwnProperty("special") && obj.special.has(value)) {
-          continue;
+        if (obj.hasOwnProperty("special")) {
+          for (let e of value) {
+            if (!obj.special.has(e)) {
+              pass = true;
+            } else {
+              pass = false;
+              break;
+            }
+          }
+        }
+      } else if (filterProp === "priceRange") {
+        if (
+          obj.hasOwnProperty("price") &&
+          value[0] <= obj.price &&
+          (value[1] === "Inf" || obj.price <= value[1])
+        ) {
+          pass = true;
+        }
+      } else if (value instanceof Array) {
+        if (obj.hasOwnProperty(filterProp)) {
+          if (value.length === 0) {
+            pass = true;
+          }
+          for (let e of value) {
+            if (obj[filterProp] === e) {
+              pass = true;
+              break;
+            }
+          }
         }
       } else {
         if (obj.hasOwnProperty(filterProp) && obj[filterProp] === value) {
-          continue;
+          pass = true;
         }
       }
-      return false;
+      if (!pass) {
+        return false;
+      }
     }
     return true;
   };
@@ -201,7 +231,7 @@ const Shop = ({ goods }) => {
               {form === "lines" && (
                 <svg
                   version="1.1"
-                  id="Слой_1"
+                  id="Layer_1"
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
                   y="0px"
@@ -265,12 +295,13 @@ const Shop = ({ goods }) => {
               className="btn_filter"
             >
               Filters
-              {filtering && (
-                <img src="./resources/images/arrow-up.png" alt="" />
-              )}
-              {!filtering && (
-                <img src="./resources/images/arrow-down.png" alt="" />
-              )}
+              {
+                <img
+                  src="./resources/images/arrow-down.png"
+                  alt=""
+                  className={filtering ? "arrow-up arrow" : "arrow-down arrow"}
+                />
+              }
             </button>
           </div>
         </div>
@@ -312,7 +343,11 @@ const Shop = ({ goods }) => {
 Shop.propTypes = {
   goods: PropTypes.objectOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+      PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+        PropTypes.number,
+      ])
     )
   ),
 };

@@ -25,7 +25,11 @@ function App({ goods }) {
 App.propTypes = {
   goods: PropTypes.objectOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.object,
+      ])
     )
   ),
 };

@@ -38,6 +38,18 @@
     align-items: center;
 }
 
+.arrow {
+    transition: 0.3s ease-out;
+}
+
+.arrow-up {
+    transform: rotateX(0deg);
+}
+
+.arrow-up {
+    transform: rotateX(180deg);
+}
+
 .disabled {
     display: none;
 }

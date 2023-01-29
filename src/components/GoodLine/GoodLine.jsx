@@ -36,7 +36,7 @@ const GoodLine = ({ data }) => {
 
 GoodLine.propTypes = {
   data: PropTypes.objectOf(
-    PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ),
 };
 

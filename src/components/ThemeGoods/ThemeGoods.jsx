@@ -68,7 +68,11 @@ const ThemeGoods = ({ goods, name }) => {
 ThemeGoods.propTypes = {
   goods: PropTypes.objectOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+      PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+        PropTypes.number,
+      ])
     )
   ),
   name: PropTypes.string,

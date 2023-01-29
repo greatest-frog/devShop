@@ -5,7 +5,7 @@ import { average } from "../../objectFunctions";
 import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
 import "./GoodCard.css";
-import { objectOf } from "prop-types";
+
 
 const GoodCard = ({ data }) => {
   return (
@@ -37,7 +37,7 @@ const GoodCard = ({ data }) => {
 
 GoodCard.propTypes = {
   data: PropTypes.objectOf(
-    PropTypes.oneOfType(PropTypes.string, PropTypes.number, PropTypes.object)
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ),
 };
 
