@@ -1,9 +1,8 @@
 import "./AddToCart.css";
 
-const AddToCart = () => {
+const AddToCart = ({productId, addGoods}) => {
   return (
-    <button className="btn_add-to-cart">
-      {/* TODO onClick */}
+    <button className="btn_add-to-cart" onClick={() => addGoods(productId)}>
       <img
         src="https://greatest-frog.github.io/shop/resources/images/cart-plus.png"
         alt="add to cart"

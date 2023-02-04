@@ -79,7 +79,8 @@ const goods = {
       ea36269cc5ad4124a906396e9e93232f: {
         title: "The Best CPU",
         author: "Mike",
-        description: "",
+        description:
+          "I think this is the best investment I have ever made in my computer. FPS increased by 1.5 times, and rendering by 2.",
         rating: 5,
       },
     },

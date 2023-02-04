@@ -5,7 +5,7 @@ import { filter, map } from "../../objectFunctions";
 import GoodCard from "../GoodCard/GoodCard";
 import "./ThemeGoods.css";
 
-const ThemeGoods = ({ goods, name }) => {
+const ThemeGoods = ({ goods, name, addGoods }) => {
   const [position, setPosition] = useState(0);
   const themeGoods = filter(goods, (good) =>
     good.special.has(name.toLowerCase())
@@ -27,7 +27,7 @@ const ThemeGoods = ({ goods, name }) => {
                   : position * -262,
             }}
           >
-            <GoodCard data={data} />
+            <GoodCard data={data} addGoods={addGoods} />
           </li>
         ))}
       </ul>
@@ -76,6 +76,7 @@ ThemeGoods.propTypes = {
     )
   ),
   name: PropTypes.string,
+  addGoods: PropTypes.func,
 };
 
 export default ThemeGoods;

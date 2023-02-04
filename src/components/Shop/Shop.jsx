@@ -103,7 +103,7 @@ const sorts = {
   },
 };
 
-const Shop = ({ goods }) => {
+const Shop = ({ goods, addGoods }) => {
   const [filters, setFilters] = useState({});
   const [form, setForm] = useState("cards");
   const [filtering, setFiltering] = useState(false);
@@ -321,7 +321,7 @@ const Shop = ({ goods }) => {
             sorts[sorting]
           ).map((good) => (
             <li key={good.id}>
-              <GoodCard data={good} />
+              <GoodCard data={good} addGoods={addGoods} />
             </li>
           ))}
         {form === "lines" &&
@@ -332,7 +332,7 @@ const Shop = ({ goods }) => {
             sorts[sorting]
           ).map((good) => (
             <li key={good.id}>
-              <GoodLine data={good} />
+              <GoodLine data={good} addGoods={addGoods} />
             </li>
           ))}
       </ul>
@@ -350,6 +350,7 @@ Shop.propTypes = {
       ])
     )
   ),
+  addGoods: PropTypes.func,
 };
 
 export default Shop;

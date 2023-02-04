@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
-const HomePage = ({ goods }) => {
+const HomePage = ({ goods, addGoods }) => {
   return (
     <div className="home">
       <div className="homepage-intro">
@@ -13,8 +13,8 @@ const HomePage = ({ goods }) => {
           and low prices.
         </div>
       </div>
-      <ThemeGoods goods={goods} name="New" />
-      <ThemeGoods goods={goods} name="Sale" />
+      <ThemeGoods goods={goods} name="New" addGoods={addGoods} />
+      <ThemeGoods goods={goods} name="Sale" addGoods={addGoods} />
     </div>
   );
 };
@@ -22,9 +22,14 @@ const HomePage = ({ goods }) => {
 HomePage.propTypes = {
   goods: PropTypes.objectOf(
     PropTypes.objectOf(
-      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.object,
+      ])
     )
   ),
+  addGoods: PropTypes.func,
 };
 
 export default HomePage;

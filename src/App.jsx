@@ -3,21 +3,43 @@ import { Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 import HomePage from "./components/HomePage/HomePage";
 import Shop from "./components/Shop/Shop";
+import Product from "./components/Product/Product";
 import "./App.css";
 
 function App({ goods }) {
   const [cart, setCart] = useState({});
+
+  const addGoods = async (id) => {
+    if (!cart.hasOwnProperty(id)) {
+      const newCart = await JSON.parse(JSON.stringify(cart));
+      newCart[id] = 1;
+      setCart(newCart);
+    }
+  };
   return (
     <div className="App">
       <NavBar goodsNumber={Object.keys(cart).length} />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage goods={goods} />} />
-          <Route path="/shop" element={<Shop goods={goods} />} />
+          <Route
+            path="/"
+            element={<HomePage goods={goods} addGoods={addGoods} />}
+          />
+          <Route
+            path="/shop"
+            element={<Shop goods={goods} addGoods={addGoods} />}
+          />
+          <Route
+            path="/shop/:productId"
+            element={<Product goods={goods} addGoods={addGoods} />}
+          />
+          <Route path="/shop/:productId/reviews" goods={goods} />
         </Routes>
       </main>
+      <Footer mode={"light"} />
     </div>
   );
 }

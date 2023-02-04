@@ -6,7 +6,7 @@ import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
 import "./GoodLine.css";
 
-const GoodLine = ({ data }) => {
+const GoodLine = ({ data, addGoods }) => {
   return (
     <div className="good-line">
       <Link to={`/shop/${data.id}`} className="good-line_photo-link">
@@ -28,7 +28,7 @@ const GoodLine = ({ data }) => {
           )}
           <div className="product-price">{`${data.price}${data.currency}`}</div>
         </div>
-        <AddToCart />
+        <AddToCart addGoods={addGoods} productId={data.id} />
       </div>
     </div>
   );
@@ -38,6 +38,7 @@ GoodLine.propTypes = {
   data: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ),
+  addGoods: PropTypes.func,
 };
 
 export default GoodLine;

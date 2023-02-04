@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import "./Rating.css";
 
-const Rating = ({ rating, number }) => {
+const Rating = ({ rating, number, needNumber }) => {
   const getStar = (rating) => {
     if (rating >= 1) {
       return (
@@ -35,9 +35,15 @@ const Rating = ({ rating, number }) => {
         {getStar(rating - 3)}
         {getStar(rating - 4)}
       </div>
-      <div className="reviews_number">{`${number}`}</div>
+      {needNumber && <div className="reviews_number">{`${number}`}</div>}
     </div>
   );
+};
+
+Rating.defaultProps = {
+  number: 1,
+  average: 0,
+  needNumber: true,
 };
 
 Rating.propTypes = {
