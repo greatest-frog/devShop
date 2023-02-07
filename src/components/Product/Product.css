@@ -33,12 +33,11 @@
 .product_reviews {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 
 .btn-wrapper {
-    margin-top: 15px;
     width: 100%;
     display: flex;
     justify-content: center;

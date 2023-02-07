@@ -21,9 +21,12 @@ const goods = {
     number: "10",
     reviews: {
       aae57e5d1bb742028af240e84b5b1e65: {
+        id: "aae57e5d1bb742028af240e84b5b1e65",
         title: "The Best GPU",
-        author: "Mike",
-        description: "",
+        author: "Marry",
+        pros: "Powerful, good design",
+        cons: "No",
+        description: "Very good video card, although expensive.",
         rating: 5,
       },
     },
@@ -49,9 +52,12 @@ const goods = {
     number: "5",
     reviews: {
       "1603fd45fa1a457792da577a7f1e19e6": {
+        id: "1603fd45fa1a457792da577a7f1e19e6",
         title: "Normal Card",
         author: "Ivan",
-        description: "",
+        pros: "Low price",
+        cons: "Bad quality",
+        description: "The fan is rattling",
         rating: 4,
       },
     },
@@ -66,7 +72,7 @@ const goods = {
     generation: "Ryzen 5000",
     model: "5600X",
     special: new Set(["new"]),
-    date: "2022-12-07",
+    date: "2020-12-07",
     manufacturer: "AMD",
     description:
       "Be unstoppable with the unprecedented speed of the world’s best desktop processors. AMD Ryzen 5000 Series processors deliver the ultimate in high performance, whether you’re playing the latest games, designing the next skyscraper or crunching scientific data. With AMD Ryzen, you’re always in the lead.",
@@ -77,10 +83,24 @@ const goods = {
     number: "7",
     reviews: {
       ea36269cc5ad4124a906396e9e93232f: {
+        id: "ea36269cc5ad4124a906396e9e93232f",
         title: "The Best CPU",
         author: "Mike",
+        pros: "Good performance",
+        cons: "No",
         description:
           "I think this is the best investment I have ever made in my computer. FPS increased by 1.5 times, and rendering by 2.",
+        rating: 5,
+      },
+      c3245c7533ea493e9a864eb811f31654: {
+        id: "c3245c7533ea493e9a864eb811f31654",
+        date: "2022-01-20",
+        title: "Great solution for PC",
+        author: "Don",
+        pros: "Cheap, good quality",
+        cons: "No",
+        description:
+          "I took this processor with a great discount, it has been working for a year, no problems",
         rating: 5,
       },
     },
@@ -105,9 +125,12 @@ const goods = {
     number: "10",
     reviews: {
       "0c5437d1fb094d6094ac4c60e8c63b5e": {
-        title: "The Best GPU",
+        id: "0c5437d1fb094d6094ac4c60e8c63b5e",
+        title: "Perfect Power supply",
         author: "Mike",
-        description: "",
+        pros: "Powerful, cheap.",
+        cons: "",
+        description: "Good, quiet power supply< suitable for powerful builds",
         rating: 5,
       },
     },
@@ -134,9 +157,12 @@ const goods = {
     number: "2",
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {
-        title: "The Best GPU",
+        id: "a9345f6bfc6c4443eb5873175d8536be9",
+        title: "Good video card",
         author: "Jake",
-        description: "",
+        pros: "Performance",
+        cons: "Unstable",
+        description: "Good performance except for some freezes",
         rating: 5,
       },
     },
@@ -153,7 +179,7 @@ const goods = {
     special: new Set(["new"]),
     manufacturer: "ASUS",
     description:
-      "Powercolor Fighter Amd Radeon Rx 6600 Graphics Card With 8Gb Gddr6 Memory.",
+      "Powercolor Fighter Amd Radeon Rx 6600 Graphics Card With 8Gb GDDR6 Memory.",
     price: 1000,
     currency: "$",
     release: "2020",
@@ -161,9 +187,12 @@ const goods = {
     number: "4",
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {
-        title: "The Best GPU",
+        id: "a9345f6bfc6c4443eb5873175d8536be9",
+        title: "Answer for Nvidia's videos cards",
         author: "Jake",
-        description: "",
+        pros: "Price, performance, design",
+        cons: "No",
+        description: "Great graphics card that outperforms nvidia graphics cards.",
         rating: 5,
       },
     },

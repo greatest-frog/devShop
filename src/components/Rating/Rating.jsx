@@ -42,13 +42,14 @@ const Rating = ({ rating, number, needNumber }) => {
 
 Rating.defaultProps = {
   number: 1,
-  average: 0,
+  rating: 0,
   needNumber: true,
 };
 
 Rating.propTypes = {
   rating: PropTypes.number,
   number: PropTypes.number,
+  needNumber: PropTypes.bool,
 };
 
 export default Rating;

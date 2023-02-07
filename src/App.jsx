@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./components/HomePage/HomePage";
 import Shop from "./components/Shop/Shop";
 import Product from "./components/Product/Product";
+import Reviews from "./components/Reviews/Reviews";
 import "./App.css";
 
 function App({ goods }) {
@@ -36,7 +37,10 @@ function App({ goods }) {
             path="/shop/:productId"
             element={<Product goods={goods} addGoods={addGoods} />}
           />
-          <Route path="/shop/:productId/reviews" goods={goods} />
+          <Route
+            path="/shop/:productId/reviews"
+            element={<Reviews goods={goods} />}
+          />
         </Routes>
       </main>
       <Footer mode={"light"} />

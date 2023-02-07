@@ -17,10 +17,12 @@ const GoodLine = ({ data, addGoods }) => {
           <Link to={`/shop/${data.id}`}>{data.name}</Link>
         </div>
         <div className="product-rating">
-          <Rating
-            rating={average(data.reviews, (element) => element.rating)}
-            number={Object.getOwnPropertyNames(data.reviews).length}
-          />
+          <Link to={`/shop/${data.id}/reviews`}>
+            <Rating
+              rating={average(data.reviews, (element) => element.rating)}
+              number={Object.getOwnPropertyNames(data.reviews).length}
+            />
+          </Link>
         </div>
         <div className="product-prices">
           {data.previousPrice !== undefined && (

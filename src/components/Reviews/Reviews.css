@@ -1,0 +1,44 @@
+.reviews {
+    width: 100%;
+    height: 100%;
+}
+
+.reviews h1 {
+    margin-bottom: 10px;
+}
+
+.reviews_info_line {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews-filter_list {
+    display: flex;
+    gap: 15px;
+}
+
+.list_item__rating label {
+    height: 25px;
+    padding: 0 5px;
+    border: 1px solid #b3a9a9;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reviews_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.reviews_list li {
+    width: min(900px, 100%);
+}
+
+.reviews .review {
+    border-bottom: 1px solid #b3a9a9;
+}

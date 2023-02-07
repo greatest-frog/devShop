@@ -17,10 +17,12 @@ const Product = ({ goods, addGoods }) => {
       <div className="product_main">
         <h1>{product.name}</h1>
         <img src={product.src} alt={product.name} className="product-image" />
-        <Rating
-          rating={average(product.reviews, (element) => element.rating)}
-          number={Object.getOwnPropertyNames(product.reviews).length}
-        />
+        <Link to={`${location.pathname}/reviews`}>
+          <Rating
+            rating={average(product.reviews, (element) => element.rating)}
+            number={Object.getOwnPropertyNames(product.reviews).length}
+          />
+        </Link>
         <div className="product-prices">
           {product.previousPrice !== undefined && (
             <div className="product-price_previous">{`${product.previousPrice}${product.currency}`}</div>
@@ -41,7 +43,7 @@ const Product = ({ goods, addGoods }) => {
         <div className="product_reviews">
           <h2>Reviews</h2>
           {Object.keys(product.reviews).length && (
-            <Review review={product.reviews[Object.keys(product.reviews)]} />
+            <Review review={product.reviews[Object.keys(product.reviews)[0]]} />
           )}
           <div className="btn-wrapper">
             <div className="btn-link">
@@ -66,4 +68,5 @@ Product.propTypes = {
       ])
     )
   ),
+  addGoods: PropTypes.func,
 };
