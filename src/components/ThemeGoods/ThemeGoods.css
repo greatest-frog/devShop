@@ -1,10 +1,10 @@
-h3 {
-    font-size: 30px;
-}
-
 .theme-goods {
     position: relative;
     padding: 10px;
+}
+
+.theme-goods h3 {
+    font-size: 30px;
 }
 
 .theme-goods_name {

@@ -1,0 +1,30 @@
+.cart_checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkout_total_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.checkout_total_info {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_checkout {
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #b3a9a9;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.btn_checkout:hover {
+    border: 1px solid orangered;
+}

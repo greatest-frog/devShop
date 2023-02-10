@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import Shop from "./components/Shop/Shop";
 import Product from "./components/Product/Product";
 import Reviews from "./components/Reviews/Reviews";
+import Cart from "./components/Cart/Cart";
 import "./App.css";
 
 function App({ goods }) {
@@ -16,7 +17,7 @@ function App({ goods }) {
   const addGoods = async (id) => {
     if (!cart.hasOwnProperty(id)) {
       const newCart = await JSON.parse(JSON.stringify(cart));
-      newCart[id] = 1;
+      newCart[id] = { id, amount: 1, active: true };
       setCart(newCart);
     }
   };
@@ -40,6 +41,10 @@ function App({ goods }) {
           <Route
             path="/shop/:productId/reviews"
             element={<Reviews goods={goods} />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart goods={goods} cart={cart} setCart={setCart} />}
           />
         </Routes>
       </main>

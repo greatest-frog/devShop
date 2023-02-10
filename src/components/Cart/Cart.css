@@ -1,0 +1,35 @@
+.cart h2 {
+    font-size: 30px;
+}
+
+.cart_window {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.cart_items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cart_checkout {
+    width: 100%;
+}
+
+.empty-cart {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-cart h3 {
+    font-size: 30px;
+}
+
+.to_shop_link {
+    text-decoration: underline;
+}

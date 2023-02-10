@@ -18,7 +18,7 @@ const goods = {
     currency: "$",
     release: "2022",
     src: "https://greatest-frog.github.io/shop/resources/images/products/msi-nvidia-geforce-rtx-4090.png",
-    number: "10",
+    number: 10,
     reviews: {
       aae57e5d1bb742028af240e84b5b1e65: {
         id: "aae57e5d1bb742028af240e84b5b1e65",
@@ -49,7 +49,7 @@ const goods = {
     currency: "$",
     release: "2021",
     src: "https://greatest-frog.github.io/shop/resources/images/products/gigabyte-nvidia-geforce-rtx-3070-ti.jpg",
-    number: "5",
+    number: 5,
     reviews: {
       "1603fd45fa1a457792da577a7f1e19e6": {
         id: "1603fd45fa1a457792da577a7f1e19e6",
@@ -80,7 +80,7 @@ const goods = {
     currency: "$",
     release: "2020",
     src: "https://greatest-frog.github.io/shop/resources/images/products/amd-ryzen-5-5600x-box.png",
-    number: "7",
+    number: 7,
     reviews: {
       ea36269cc5ad4124a906396e9e93232f: {
         id: "ea36269cc5ad4124a906396e9e93232f",
@@ -122,7 +122,7 @@ const goods = {
     currency: "$",
     release: "2022",
     src: "https://greatest-frog.github.io/shop/resources/images/products/be-quiet-dark-power-pro-12-1500w.png",
-    number: "10",
+    number: 10,
     reviews: {
       "0c5437d1fb094d6094ac4c60e8c63b5e": {
         id: "0c5437d1fb094d6094ac4c60e8c63b5e",
@@ -154,7 +154,7 @@ const goods = {
     currency: "$",
     release: "2021",
     src: "https://greatest-frog.github.io/shop/resources/images/products/powercolor-amd-radeon-rx-6600.png",
-    number: "2",
+    number: 2,
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {
         id: "a9345f6bfc6c4443eb5873175d8536be9",
@@ -184,7 +184,7 @@ const goods = {
     currency: "$",
     release: "2020",
     src: "https://greatest-frog.github.io/shop/resources/images/products/asus-amd-radeon-rx-6800-xt.png",
-    number: "4",
+    number: 4,
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {
         id: "a9345f6bfc6c4443eb5873175d8536be9",
@@ -192,7 +192,8 @@ const goods = {
         author: "Jake",
         pros: "Price, performance, design",
         cons: "No",
-        description: "Great graphics card that outperforms nvidia graphics cards.",
+        description:
+          "Great graphics card that outperforms nvidia graphics cards.",
         rating: 5,
       },
     },

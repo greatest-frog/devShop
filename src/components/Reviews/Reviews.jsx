@@ -99,9 +99,11 @@ const Reviews = ({ goods }) => {
 
   return (
     <div className="reviews">
-      <Link to={`/shop/${params.productId}`}>
-        <h1>{product.name} &ndash; Reviews</h1>
-      </Link>
+      <h1>
+        <Link to={`/shop/${params.productId}`}>{product.name}</Link> &ndash;
+        Reviews
+      </h1>
+
       <div className="reviews_info_line">
         <h2>
           {Object.keys(product.reviews).length === 1
