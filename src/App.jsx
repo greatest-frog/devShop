@@ -9,6 +9,7 @@ import Shop from "./components/Shop/Shop";
 import Product from "./components/Product/Product";
 import Reviews from "./components/Reviews/Reviews";
 import Cart from "./components/Cart/Cart";
+import About from "./components/About/About";
 import "./App.css";
 
 function App({ goods }) {
@@ -46,6 +47,7 @@ function App({ goods }) {
             path="/cart"
             element={<Cart goods={goods} cart={cart} setCart={setCart} />}
           />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
       <Footer mode={"light"} />
