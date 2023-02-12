@@ -7,7 +7,7 @@ import goods from "./mock/mock";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/shop">
+    <BrowserRouter basename="/devShop">
       <App goods={goods} />
     </BrowserRouter>
   </React.StrictMode>

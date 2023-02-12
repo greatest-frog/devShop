@@ -40,7 +40,7 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
             className="btn_mover"
           >
             <img
-              src="https://greatest-frog.github.io/shop/resources/images/mover-left.png"
+              src="https://greatest-frog.github.io/devShop/resources/images/mover-left.png"
               alt=""
             />
           </button>
@@ -55,7 +55,7 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
             className="btn_mover"
           >
             <img
-              src="https://greatest-frog.github.io/shop/resources/images/mover-right.png"
+              src="https://greatest-frog.github.io/devShop/resources/images/mover-right.png"
               alt=""
             />
           </button>

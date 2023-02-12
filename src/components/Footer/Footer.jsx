@@ -13,14 +13,14 @@ const Footer = ({ mode }) => {
       >
         {mode === "light" && (
           <img
-            src="https://greatest-frog.github.io/shop/resources/images/github-logo-white.svg"
+            src="https://greatest-frog.github.io/devShop/resources/images/github-logo-white.svg"
             alt="github"
             className="github__logo"
           />
         )}
         {mode !== "light" && (
           <img
-            src="https://greatest-frog.github.io/shop/resources/images/github-logo.svg"
+            src="https://greatest-frog.github.io/devShop/resources/images/github-logo.svg"
             alt="github"
             className="github__logo"
           />
