@@ -52,8 +52,8 @@ const sorts = {
         bAvg = average(b.reviews, (element) => element.rating);
       if (aAvg === bAvg) {
         return (
-          Object.getOwnPropertyNames(a).length -
-          Object.getOwnPropertyNames(b).length
+          Object.getOwnPropertyNames(a.reviews).length -
+          Object.getOwnPropertyNames(b.reviews).length
         );
       } else {
         return aAvg - bAvg;

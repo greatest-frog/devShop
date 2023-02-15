@@ -2,12 +2,51 @@ const goods = {
   "152ed03e955f4f9188e925d96b8ceb21": {
     id: "152ed03e955f4f9188e925d96b8ceb21",
     name: "MSI Nvidia GeForce RTX 4090",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Graphics card",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "MSI",
+          },
+          release: {
+            name: "Release date",
+            value: "2022",
+          },
+        },
+      },
+      gpu: {
+        title: "GPU characteristics",
+        chars: {
+          chipManufacturer: {
+            name: "GPU manufacturer",
+            value: "Nvidia",
+          },
+          series: {
+            name: "GPU series",
+            value: "RTX 40",
+          },
+          model: {
+            name: "GPU model",
+            value: "RTX 4090",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Graphics card",
     chipManufacturer: "Nvidia",
-    series: "RTX",
-    generation: "RTX 40",
-    model: "4090",
+    series: "RTX 40",
+    model: "RTX 4090",
     special: new Set(["new", "sale"]),
     date: "2022-12-06",
     manufacturer: "MSI",
@@ -34,6 +73,46 @@ const goods = {
   f758d6358c6b4551ad926bc25a24a3dc: {
     id: "f758d6358c6b4551ad926bc25a24a3dc",
     name: "Gigabyte Nvidia GeForce RTX 3070 Ti",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Graphics card",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "Gigabyte",
+          },
+          release: {
+            name: "Release date",
+            value: "2021",
+          },
+        },
+      },
+      gpu: {
+        title: "GPU characteristics",
+        chars: {
+          chipManufacturer: {
+            name: "GPU manufacturer",
+            value: "Nvidia",
+          },
+          series: {
+            name: "GPU series",
+            value: "RTX 30",
+          },
+          model: {
+            name: "GPU model",
+            value: "RTX 3070 Ti",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Graphics card",
     chipManufacturer: "Nvidia",
@@ -66,6 +145,42 @@ const goods = {
   "4449ef5138c04b9fbfd54003ca987423": {
     id: "4449ef5138c04b9fbfd54003ca987423",
     name: "AMD Ryzen 5 5600X BOX",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Processor",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "AMD",
+          },
+          release: {
+            name: "Release date",
+            value: "2020",
+          },
+        },
+      },
+      cpu: {
+        title: "CPU characteristics",
+        chars: {
+          series: {
+            name: "CPU series",
+            value: "Ryzen 5000",
+          },
+          model: {
+            name: "CPU model",
+            value: "Ryzen 5 5600X",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Processor",
     series: "Ryzen",
@@ -109,6 +224,46 @@ const goods = {
   "945041436362491ab408b164fafa7a5d": {
     id: "945041436362491ab408b164fafa7a5d",
     name: "be quiet! Dark Power Pro 12 1500W",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Power Supply",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "be quiet!",
+          },
+          release: {
+            name: "Release date",
+            value: "2022",
+          },
+        },
+      },
+      powerSupply: {
+        title: "Power supply characteristics",
+        chars: {
+          series: {
+            name: "Power supply series",
+            value: "Dark Power Pro 12",
+          },
+          model: {
+            name: "Power supply model",
+            value: "Dark Power Pro 12 1500W",
+          },
+          certificate: {
+            name: "Certificate",
+            value: "80 PLUS Titanium",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Power supply",
     series: "Dark Power Pro 12",
@@ -139,12 +294,52 @@ const goods = {
   "34376c67997a4cbca94d0a89f4f9a33a": {
     id: "34376c67997a4cbca94d0a89f4f9a33a",
     name: "PowerColor AMD Radeon RX 6600",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Graphics card",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "PowerColor",
+          },
+          release: {
+            name: "Release date",
+            value: "2021",
+          },
+        },
+      },
+      gpu: {
+        title: "GPU characteristics",
+        chars: {
+          chipManufacturer: {
+            name: "GPU manufacturer",
+            value: "AMD",
+          },
+          series: {
+            name: "GPU series",
+            value: "RX 6000",
+          },
+          model: {
+            name: "GPU model",
+            value: "RX 6600",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Graphics card",
     chipManufacturer: "AMD",
     series: "Radeon RX",
     generation: "RX 6000",
-    model: "6600",
+    model: "RX 6600",
     special: new Set(["new", "sale"]),
     manufacturer: "PowerColor",
     description:
@@ -170,16 +365,56 @@ const goods = {
   "22b9c3ac926240a48fc8435cc8b702b0": {
     id: "22b9c3ac926240a48fc8435cc8b702b0",
     name: "ASUS AMD Radeon RX 6800 XT",
+    characteristics: {
+      main: {
+        title: "Main characteristics",
+        chars: {
+          type: {
+            name: "Product type",
+            value: "Component",
+          },
+          element: {
+            name: "Type of component",
+            value: "Graphics card",
+          },
+          manufacturer: {
+            name: "Manufacturer",
+            value: "ASUS",
+          },
+          release: {
+            name: "Release date",
+            value: "2020",
+          },
+        },
+      },
+      gpu: {
+        title: "GPU characteristics",
+        chars: {
+          chipManufacturer: {
+            name: "GPU manufacturer",
+            value: "AMD",
+          },
+          series: {
+            name: "GPU series",
+            value: "RX 6000",
+          },
+          model: {
+            name: "GPU model",
+            value: "RX 6800 XT",
+          },
+        },
+      },
+    },
     type: "Component",
     element: "Graphics card",
     chipManufacturer: "AMD",
     series: "Radeon RX",
     generation: "RX 6000",
-    model: "6800 XT",
+    model: "RX 6800 XT",
     special: new Set(["new"]),
     manufacturer: "ASUS",
     description:
-      "Powercolor Fighter Amd Radeon Rx 6600 Graphics Card With 8Gb GDDR6 Memory.",
+      "The TUF GAMING Radeon™ RX 6800 XT is a tenacious beast with a tough metal exterior, super-efficient cooling, and components that offer enhanced endurance.",
     price: 1000,
     currency: "$",
     release: "2020",
