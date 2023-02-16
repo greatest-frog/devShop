@@ -14,7 +14,9 @@ const GoodCard = ({ data, addGoods }) => {
       </Link>
       <div className="good-card_info">
         <div className="product-name">
-          <Link to={`/shop/${data.id}`}>{data.name}</Link>
+          <Link to={`/shop/${data.id}`}>
+            {data.name.length > 50 ? data.name.slice(0, 47) + "..." : data.name}
+          </Link>
         </div>
         <div className="product-rating">
           <Link to={`/shop/${data.id}/reviews`}>

@@ -12,10 +12,8 @@ select {
 }
 
 .shop_info_line {
-    height: 40px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     align-items: center;
 }
 
@@ -69,7 +67,7 @@ select {
 
 .shop_items.cards {
     display: grid;
-    grid-template-columns: repeat(4, 250px);
+    grid-template-columns: repeat(auto-fit, 250px);
     justify-items: center;
     justify-content: center;
     gap: 20px;
@@ -79,4 +77,17 @@ select {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .shop_items.cards {
+        grid-template-columns: repeat(auto-fit, 150px);
+        gap: 10px;
+    }
+
+    .shop_info_line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
 }

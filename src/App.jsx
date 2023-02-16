@@ -49,6 +49,7 @@ function App({ goods }) {
           />
           <Route path="/about" element={<About />} />
         </Routes>
+        
       </main>
       <Footer mode={"light"} />
     </div>

@@ -15,7 +15,10 @@
 
 .reviews-filter_list {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 10px 15px;
 }
 
 .list_item__rating label {

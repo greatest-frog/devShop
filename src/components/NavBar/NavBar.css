@@ -24,3 +24,12 @@ a {
     align-items: center;
     gap: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    nav {
+        gap: 45px;
+    }
+    .nav-list {
+        gap: 15px;
+    }
+}

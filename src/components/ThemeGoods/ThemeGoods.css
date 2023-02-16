@@ -14,7 +14,6 @@
 .theme-goods_list {
     overflow: hidden;
     list-style: none;
-    padding: 10px;
     display: flex;
     gap: 12px;
 }
@@ -60,4 +59,10 @@
 .mover_right:hover .btn_mover,
 .mover_left:hover .btn_mover {
     opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .theme-goods_list {
+        gap: 10px;
+    }
 }

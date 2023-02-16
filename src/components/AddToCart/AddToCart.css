@@ -4,6 +4,9 @@
     height: 44px;
     border: 1px solid #cbcaca;
     border-radius: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: 0.15s ease-out;
 }

@@ -11,14 +11,11 @@
 .cart_items {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-.cart_checkout {
-    width: 100%;
+    gap: 10px;
 }
 
 .empty-cart {
+    text-align: center;
     font-size: 22px;
     display: flex;
     flex-direction: column;
@@ -32,4 +29,11 @@
 
 .to_shop_link {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1250px) {
+    .cart_window {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }

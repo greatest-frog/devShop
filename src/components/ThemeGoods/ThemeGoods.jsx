@@ -10,6 +10,31 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
   const themeGoods = filter(goods, (good) =>
     good.special.has(name.toLowerCase())
   );
+
+  const enableButton = () => {
+    if (window.matchMedia("(max-width: 850px)").matches) {
+      console.log(goods);
+      return Object.getOwnPropertyNames(themeGoods).length - 2 > position;
+    } else if (window.matchMedia("(max-width: 1250px)").matches) {
+      return Object.getOwnPropertyNames(themeGoods).length - 3 > position;
+    }
+    return Object.getOwnPropertyNames(themeGoods).length - 4 > position;
+  };
+
+  const getShift = () => {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+      return position * -155;
+    } else if (window.matchMedia("(max-width: 850px)").matches) {
+      return position === 0 ? 10 : 10 + position * -262;
+    } else if (window.matchMedia("(max-width: 1250px)").matches) {
+      return position * -262;
+    }
+    return position !== 0 &&
+      position === Object.getOwnPropertyNames(themeGoods).length - 4
+      ? (position - 1) * -262 - 130
+      : position * -262;
+  };
+
   return (
     <div className="theme-goods">
       <div className="theme-goods_name">
@@ -20,17 +45,14 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
           <li
             key={key}
             style={{
-              left:
-                position !== 0 &&
-                position === Object.getOwnPropertyNames(goods).length - 4
-                  ? (position - 1) * -262 - 130
-                  : position * -262,
+              left: getShift(),
             }}
           >
             <GoodCard data={data} addGoods={addGoods} />
           </li>
         ))}
       </ul>
+      {/* TODO touch movers */}
       {position > 0 && (
         <div className="mover mover_left">
           <button
@@ -46,7 +68,7 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
           </button>
         </div>
       )}
-      {Object.getOwnPropertyNames(themeGoods).length - 4 > position && (
+      {enableButton() && (
         <div className="mover mover_right">
           <button
             onClick={() => {

@@ -1,4 +1,5 @@
 .cart_checkout {
+    width: min(400px, 100%);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -28,3 +29,4 @@
 .btn_checkout:hover {
     border: 1px solid orangered;
 }
+
