@@ -1,4 +1,5 @@
 .App {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +17,22 @@ main {
 
 .list {
     list-style: none;
+}
+
+.button-space {
+    width: 100%;
+    height: 60px;
+}
+
+.btn_on-top {
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
 }
 
 @media screen and (max-width: 1250px) {

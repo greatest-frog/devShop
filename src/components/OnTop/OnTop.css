@@ -1,0 +1,16 @@
+.btn_on-top {
+    background-color: #ff8539;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+.btn_on-top:hover {
+    background-color: #ff8539;
+}
