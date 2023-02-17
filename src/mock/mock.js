@@ -56,7 +56,7 @@ const goods = {
     previousPrice: 2300,
     currency: "$",
     release: "2022",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/msi-nvidia-geforce-rtx-4090.png",
+    src: "/resources/images/products/msi-nvidia-geforce-rtx-4090.png",
     number: 10,
     reviews: {
       aae57e5d1bb742028af240e84b5b1e65: {
@@ -127,7 +127,7 @@ const goods = {
     price: 1000,
     currency: "$",
     release: "2021",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/gigabyte-nvidia-geforce-rtx-3070-ti.jpg",
+    src: "/resources/images/products/gigabyte-nvidia-geforce-rtx-3070-ti.jpg",
     number: 5,
     reviews: {
       "1603fd45fa1a457792da577a7f1e19e6": {
@@ -194,7 +194,7 @@ const goods = {
     price: 230,
     currency: "$",
     release: "2020",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/amd-ryzen-5-5600x-box.png",
+    src: "/resources/images/products/amd-ryzen-5-5600x-box.png",
     number: 7,
     reviews: {
       ea36269cc5ad4124a906396e9e93232f: {
@@ -276,7 +276,7 @@ const goods = {
     price: 380,
     currency: "$",
     release: "2022",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/be-quiet-dark-power-pro-12-1500w.png",
+    src: "/resources/images/products/be-quiet-dark-power-pro-12-1500w.png",
     number: 10,
     reviews: {
       "0c5437d1fb094d6094ac4c60e8c63b5e": {
@@ -348,7 +348,7 @@ const goods = {
     previousPrice: 330,
     currency: "$",
     release: "2021",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/powercolor-amd-radeon-rx-6600.png",
+    src: "/resources/images/products/powercolor-amd-radeon-rx-6600.png",
     number: 2,
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {
@@ -418,7 +418,7 @@ const goods = {
     price: 1000,
     currency: "$",
     release: "2020",
-    src: "https://greatest-frog.github.io/devShop/resources/images/products/asus-amd-radeon-rx-6800-xt.png",
+    src: "/resources/images/products/asus-amd-radeon-rx-6800-xt.png",
     number: 4,
     reviews: {
       a9345f6bfc6c4443eb5873175d8536be9: {

@@ -7,22 +7,22 @@ const Rating = ({ rating, number, needNumber }) => {
     if (rating >= 1) {
       return (
         <img
-          src="https://greatest-frog.github.io/devShop/resources/images/star.png"
-          alt=""
+          src={process.env.PUBLIC_URL + "/resources/images/star.png"}
+          alt="one star"
         />
       );
     } else if (rating >= 0.5) {
       return (
         <img
-          src="https://greatest-frog.github.io/devShop/resources/images/half-star.png"
-          alt=""
+          src={process.env.PUBLIC_URL + "/resources/images/half-star.png"}
+          alt="half star"
         />
       );
     }
     return (
       <img
-        src="https://greatest-frog.github.io/devShop/resources/images/unfilled-star.png"
-        alt=""
+        src={process.env.PUBLIC_URL + "/resources/images/unfilled-star.png"}
+        alt="no star"
       />
     );
   };

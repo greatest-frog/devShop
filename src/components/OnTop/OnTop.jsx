@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-import arrow from "./arrow-upward.png";
 import "./OnTop.css";
 
 const OnTop = ({ className }) => {
@@ -9,7 +8,10 @@ const OnTop = ({ className }) => {
       className={className ? `btn_on-top ${className}` : "btn_on-top"}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      <img src={arrow} alt="On top" />
+      <img
+        src={process.env.PUBLIC_URL + "/resources/images/arrow-upward.png"}
+        alt="On top"
+      />
     </button>
   );
 };

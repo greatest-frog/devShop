@@ -10,7 +10,11 @@ const GoodLine = ({ data, addGoods }) => {
   return (
     <div className="good-line">
       <Link to={`/shop/${data.id}`} className="good-line_photo-link">
-        <img src={data.src} alt={data.name} className="good-line_icon" />
+        <img
+          src={process.env.PUBLIC_URL + data.src}
+          alt={data.name}
+          className="good-line_icon"
+        />
       </Link>
       <div className="good-line_info">
         <div className="product-name">

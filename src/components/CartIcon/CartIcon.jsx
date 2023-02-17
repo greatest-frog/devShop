@@ -6,7 +6,7 @@ const CartIcon = ({ goodsNumber }) => {
   return (
     <div className="cart-icon" data-testid="cart-icon">
       <img
-        src="https://greatest-frog.github.io/devShop/resources/images/cart.png"
+        src={process.env.PUBLIC_URL + "/resources/images/cart.png"}
         alt="Cart"
       />
       <div className="goods-number">{goodsNumber}</div>

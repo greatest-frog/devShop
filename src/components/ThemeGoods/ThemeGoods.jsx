@@ -13,7 +13,6 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
 
   const enableButton = () => {
     if (window.matchMedia("(max-width: 850px)").matches) {
-      console.log(goods);
       return Object.getOwnPropertyNames(themeGoods).length - 2 > position;
     } else if (window.matchMedia("(max-width: 1250px)").matches) {
       return Object.getOwnPropertyNames(themeGoods).length - 3 > position;
@@ -62,8 +61,8 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
             className="btn_mover"
           >
             <img
-              src="https://greatest-frog.github.io/devShop/resources/images/mover-left.png"
-              alt=""
+              src={process.env.PUBLIC_URL + "/resources/images/mover-left.png"}
+              alt="move to the left"
             />
           </button>
         </div>
@@ -77,8 +76,8 @@ const ThemeGoods = ({ goods, name, addGoods }) => {
             className="btn_mover"
           >
             <img
-              src="https://greatest-frog.github.io/devShop/resources/images/mover-right.png"
-              alt=""
+              src={process.env.PUBLIC_URL + "/resources/images/mover-right.png"}
+              alt="move to the right"
             />
           </button>
         </div>

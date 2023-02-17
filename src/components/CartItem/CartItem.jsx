@@ -25,7 +25,7 @@ const CartItem = ({
         onChange={changeSelect}
       />
       <Link to={`/shop/${itemData.id}`}>
-        <img src={item.src} alt={`${item.name}`} />
+        <img src={process.env.PUBLIC_URL + item.src} alt={`${item.name}`} />
       </Link>
       <div className="cart-item_info">
         <Link to={`/shop/${itemData.id}`}>

@@ -262,7 +262,9 @@ const Shop = ({ goods, addGoods }) => {
               Filters
               {
                 <img
-                  src="./resources/images/arrow-down.png"
+                  src={
+                    process.env.PUBLIC_URL + "/resources/images/arrow-down.png"
+                  }
                   alt=""
                   className={filtering ? "arrow-up arrow" : "arrow-down arrow"}
                 />

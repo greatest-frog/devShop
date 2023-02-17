@@ -10,7 +10,11 @@ const GoodCard = ({ data, addGoods }) => {
   return (
     <div className="good-card">
       <Link to={`/shop/${data.id}`} className="good-card_photo-link">
-        <img src={data.src} alt={data.name} className="good-card_icon" />
+        <img
+          src={process.env.PUBLIC_URL + data.src}
+          alt={data.name}
+          className="good-card_icon"
+        />
       </Link>
       <div className="good-card_info">
         <div className="product-name">

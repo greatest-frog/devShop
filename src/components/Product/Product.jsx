@@ -16,7 +16,11 @@ const Product = ({ goods, addGoods }) => {
     <div className="product">
       <div className="product_main">
         <h1>{product.name}</h1>
-        <img src={product.src} alt={product.name} className="product-image" />
+        <img
+          src={process.env.PUBLIC_URL + product.src}
+          alt={product.name}
+          className="product-image"
+        />
         <Link to={`${location.pathname}/reviews`}>
           <Rating
             rating={average(product.reviews, (element) => element.rating)}

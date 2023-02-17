@@ -26,7 +26,6 @@ function App({ goods }) {
   };
 
   window.onscroll = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 100) {
       setAppear(true);
     } else {
