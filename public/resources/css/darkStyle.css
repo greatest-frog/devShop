@@ -1,0 +1,11 @@
+.dark a {
+    color: #e5e7eb;
+}
+
+.dark a:hover {
+    color: #ff8539;
+}
+
+.dark select {
+    background-color: #e5e7eb;
+}

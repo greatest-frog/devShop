@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Counter from "../Counter/Counter";
 import "./CartItem.css";
+import "./DarkCartItem.css";
 
 const CartItem = ({
   goods,

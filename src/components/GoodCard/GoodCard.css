@@ -46,6 +46,7 @@
     flex-direction: column;
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .product-price {

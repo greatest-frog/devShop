@@ -16,6 +16,13 @@ import "./App.css";
 function App({ goods }) {
   const [cart, setCart] = useState({});
   const [appear, setAppear] = useState(false);
+  const [mode, setMode] = useState(
+    localStorage?.getItem("colorMode")
+      ? localStorage?.getItem("colorMode")
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light"
+  );
 
   const addGoods = async (id) => {
     if (!cart.hasOwnProperty(id)) {
@@ -24,6 +31,13 @@ function App({ goods }) {
       setCart(newCart);
     }
   };
+
+  if (
+    localStorage?.getItem("colorMode") === "dark" ||
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    document.querySelector("html")?.classList?.add("dark");
+  }
 
   window.onscroll = () => {
     if (window.scrollY >= 100) {
@@ -35,7 +49,11 @@ function App({ goods }) {
 
   return (
     <div className="App">
-      <NavBar goodsNumber={Object.keys(cart).length} />
+      <NavBar
+        goodsNumber={Object.keys(cart).length}
+        setMode={setMode}
+        mode={mode}
+      />
       <main>
         <Routes>
           <Route
@@ -63,7 +81,7 @@ function App({ goods }) {
         <div className="button-space"></div>
         {<OnTop className={appear ? "visible" : "invisible"} />}
       </main>
-      <Footer mode={"light"} />
+      <Footer />
     </div>
   );
 }

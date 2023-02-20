@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import { map } from "../../objectFunctions";
 import "./CharacteristicsCategory.css";
+import "./DarkCharacteristicsCategory.css";
 
 const CharacteristicsCategory = ({ category }) => {
   return (

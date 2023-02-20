@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 import "./Checkout.css";
+import "./DarkCheckout.css";
 
 const Checkout = ({ amount, sum, currency }) => {
   return (

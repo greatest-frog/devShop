@@ -3,6 +3,12 @@
     bottom: -4px;
 }
 
+.cart-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #1f1f1d;
+}
+
 .goods-number {
     color: #f5f5f5;
     background: #1f1f1d;

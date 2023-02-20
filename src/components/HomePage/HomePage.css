@@ -1,6 +1,7 @@
 .home h2 {
     font-size: 32px;
     font-weight: bold;
+    color: #1f1f1d;
     margin-bottom: 36px;
 }
 
@@ -12,8 +13,9 @@
 }
 
 .homepage-intro_description {
-    max-width: 580px;
     font-size: 24px;
+    color: #1f1f1d;
+    max-width: 580px;
 }
 
 

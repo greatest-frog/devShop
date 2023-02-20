@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import CartItem from "../CartItem/CartItem";
@@ -7,6 +8,13 @@ import { map } from "../../objectFunctions";
 import "./Cart.css";
 
 const Cart = ({ goods, cart, setCart }) => {
+  useEffect(() => {
+    document.title = "Cart – devShop";
+    return () => {
+      document.title = "devShop";
+    };
+  }, []);
+
   const setAmount = async (id, amount) => {
     const oldCart = JSON.parse(JSON.stringify(cart));
     oldCart[id] = { id, amount, active: cart[id].active };

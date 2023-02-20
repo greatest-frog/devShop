@@ -5,6 +5,7 @@ import { average } from "../../objectFunctions";
 import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
 import "./GoodCard.css";
+import "./DarkGoodCard.css";
 
 const GoodCard = ({ data, addGoods }) => {
   return (

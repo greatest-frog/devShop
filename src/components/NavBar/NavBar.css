@@ -13,16 +13,22 @@ h1 {
     font-weight: bold;
 }
 
-a {
-    color: #2f3946;
-    text-decoration: none;
-}
-
 .nav-list {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.btn_toggle-mode {
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

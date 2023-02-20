@@ -1,9 +1,17 @@
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
 const HomePage = ({ goods, addGoods }) => {
+  useEffect(() => {
+    document.title = "devShop – Home";
+    return () => {
+      document.title = "devShop";
+    };
+  }, []);
+
   return (
     <div className="home">
       <div className="homepage-intro">

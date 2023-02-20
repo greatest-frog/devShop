@@ -20,7 +20,7 @@
 
 .theme-goods_list li {
     position: relative;
-    transition: 0.35s ease-in;
+    transition: left 0.35s ease-in;
 }
 
 .mover_left {
@@ -31,7 +31,6 @@
     height: 290px;
     display: flex;
     align-items: center;
-    transition: 0.2s ease-in;
 }
 
 .mover_right {
@@ -42,7 +41,6 @@
     height: 290px;
     display: flex;
     align-items: center;
-    transition: 0.2s ease-in;
 }
 
 .btn_mover {
@@ -53,7 +51,7 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: 0.2s ease-in;
+    transition: 0.15s ease-in;
 }
 
 .mover_right:hover .btn_mover,

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -98,111 +99,116 @@ const Reviews = ({ goods }) => {
   };
 
   return (
-    <div className="reviews">
-      <h1>
-        <Link to={`/shop/${params.productId}`}>{product.name}</Link> &ndash;
-        Reviews
-      </h1>
+    <>
+      <Helmet>
+        <title>{`Reviews for ${product.name} – devShop`}</title>
+      </Helmet>
+      <div className="reviews">
+        <h1>
+          <Link to={`/shop/${params.productId}`}>{product.name}</Link> &ndash;
+          Reviews
+        </h1>
 
-      <div className="reviews_info_line">
-        <h2>
-          {Object.keys(product.reviews).length === 1
-            ? `1 review`
-            : `${Object.keys(product.reviews).length} reviews`}
-        </h2>
-        <div className="reviews_tools">
-          <select
-            name="reviewSorting"
-            id="reviewSorting"
-            value={sorting}
-            onChange={(e) => setSorting(e.target.value)}
-          >
-            <option value="featured">Featured</option>
-            <option value="ascending">By ascending rating</option>
-            <option value="descending">By descending rating</option>
-            <option value="byDate">Newest reviews</option>
-          </select>
+        <div className="reviews_info_line">
+          <h2>
+            {Object.keys(product.reviews).length === 1
+              ? `1 review`
+              : `${Object.keys(product.reviews).length} reviews`}
+          </h2>
+          <div className="reviews_tools">
+            <select
+              name="reviewSorting"
+              id="reviewSorting"
+              value={sorting}
+              onChange={(e) => setSorting(e.target.value)}
+            >
+              <option value="featured">Featured</option>
+              <option value="ascending">By ascending rating</option>
+              <option value="descending">By descending rating</option>
+              <option value="byDate">Newest reviews</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div className="reviews-filter">
-        <ul className="list reviews-filter_list">
-          <li className="list_item__rating">
-            <label>
-              <input
-                type="checkbox"
-                name="rating"
-                id="oneStar"
-                value={1}
-                onChange={(e) => handleArrayInput(e, "rating")}
-              />
-              <Rating rating={1} needNumber={false} />
-            </label>
-          </li>
-          <li className="list_item__rating">
-            <label>
-              <input
-                type="checkbox"
-                name="rating"
-                id="twoStar"
-                value={2}
-                onChange={(e) => handleArrayInput(e, "rating")}
-              />
-              <Rating rating={2} needNumber={false} />
-            </label>
-          </li>
-          <li className="list_item__rating">
-            <label>
-              <input
-                type="checkbox"
-                name="rating"
-                id="threeStar"
-                value={3}
-                onChange={(e) => handleArrayInput(e, "rating")}
-              />
-              <Rating rating={3} needNumber={false} />
-            </label>
-          </li>
-          <li className="list_item__rating">
-            <label>
-              <input
-                type="checkbox"
-                name="rating"
-                id="fourStar"
-                value={4}
-                onChange={(e) => handleArrayInput(e, "rating")}
-              />
-              <Rating rating={4} needNumber={false} />
-            </label>
-          </li>
+        <div className="reviews-filter">
+          <ul className="list reviews-filter_list">
+            <li className="list_item__rating">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rating"
+                  id="oneStar"
+                  value={1}
+                  onChange={(e) => handleArrayInput(e, "rating")}
+                />
+                <Rating rating={1} needNumber={false} />
+              </label>
+            </li>
+            <li className="list_item__rating">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rating"
+                  id="twoStar"
+                  value={2}
+                  onChange={(e) => handleArrayInput(e, "rating")}
+                />
+                <Rating rating={2} needNumber={false} />
+              </label>
+            </li>
+            <li className="list_item__rating">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rating"
+                  id="threeStar"
+                  value={3}
+                  onChange={(e) => handleArrayInput(e, "rating")}
+                />
+                <Rating rating={3} needNumber={false} />
+              </label>
+            </li>
+            <li className="list_item__rating">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rating"
+                  id="fourStar"
+                  value={4}
+                  onChange={(e) => handleArrayInput(e, "rating")}
+                />
+                <Rating rating={4} needNumber={false} />
+              </label>
+            </li>
 
-          <li className="list_item__rating">
-            <label>
-              <input
-                type="checkbox"
-                name="rating"
-                id="fiveStar"
-                value={5}
-                onChange={(e) => handleArrayInput(e, "rating")}
-              />
-              <Rating rating={5} needNumber={false} />
-            </label>
-          </li>
+            <li className="list_item__rating">
+              <label>
+                <input
+                  type="checkbox"
+                  name="rating"
+                  id="fiveStar"
+                  value={5}
+                  onChange={(e) => handleArrayInput(e, "rating")}
+                />
+                <Rating rating={5} needNumber={false} />
+              </label>
+            </li>
+          </ul>
+        </div>
+        {/* TODO pagination */}
+        <ul className="reviews_list list">
+          {sorted(
+            Object.entries(product.reviews)
+              .map((entry) => entry[1])
+              .filter((review) => fitFilters(review)),
+            sorts[sorting]
+          ).map((review) => (
+            <li key={review.id}>
+              <Review review={review} />
+            </li>
+          ))}
         </ul>
       </div>
-      {/* TODO pagination */}
-      <ul className="reviews_list list">
-        {sorted(
-          Object.entries(product.reviews)
-            .map((entry) => entry[1])
-            .filter((review) => fitFilters(review)),
-          sorts[sorting]
-        ).map((review) => (
-          <li key={review.id}>
-            <Review review={review} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    </>
   );
 };
 
