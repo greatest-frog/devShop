@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -14,11 +14,21 @@ import OnTop from "./components/OnTop/OnTop";
 import "./App.css";
 
 function App({ goods }) {
+  useEffect(() => {
+    if (
+      window.localStorage?.getItem("colorMode") === "dark" ||
+      (window.localStorage?.getItem("colorMode") !== "light" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.querySelector("body")?.classList?.add("dark");
+    }
+  }, []);
+
   const [cart, setCart] = useState({});
   const [appear, setAppear] = useState(false);
   const [mode, setMode] = useState(
-    localStorage?.getItem("colorMode")
-      ? localStorage?.getItem("colorMode")
+    window.localStorage?.getItem("colorMode")
+      ? window.localStorage.getItem("colorMode")
       : window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light"
@@ -31,13 +41,6 @@ function App({ goods }) {
       setCart(newCart);
     }
   };
-
-  if (
-    localStorage?.getItem("colorMode") === "dark" ||
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    document.querySelector("html")?.classList?.add("dark");
-  }
 
   window.onscroll = () => {
     if (window.scrollY >= 100) {

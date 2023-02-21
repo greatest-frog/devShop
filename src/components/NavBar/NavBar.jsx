@@ -11,12 +11,12 @@ const NavBar = ({ goodsNumber, setMode, mode }) => {
     if (mode === "light") {
       setMode("dark");
       window.localStorage.setItem("colorMode", "dark");
-      document.querySelector("html")?.classList?.add("dark");
+      document.querySelector("body")?.classList?.add("dark");
     } else {
       setMode("light");
       window.localStorage.setItem("colorMode", "light");
-      if (document.querySelector("html").classList.contains("dark")) {
-        document.querySelector("html")?.classList?.remove("dark");
+      if (document.querySelector("body").classList.contains("dark")) {
+        document.querySelector("body")?.classList?.remove("dark");
       }
     }
   };
