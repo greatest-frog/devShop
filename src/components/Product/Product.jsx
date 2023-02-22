@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 import { useLocation, useParams, Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const Product = ({ goods, addGoods }) => {
   const product = goods[useParams().productId];
   const location = useLocation();
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>{`${product.name} – devShop`}</title>
       </Helmet>
@@ -66,7 +66,7 @@ const Product = ({ goods, addGoods }) => {
           </div>
         </div>
       </div>
-    </>
+    </HelmetProvider>
   );
 };
 

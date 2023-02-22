@@ -7,7 +7,6 @@ import "./DarkNavBar.css";
 
 const NavBar = ({ goodsNumber, setMode, mode }) => {
   const toggleMode = () => {
-    console.log(mode === "dark");
     if (mode === "light") {
       setMode("dark");
       window.localStorage.setItem("colorMode", "dark");

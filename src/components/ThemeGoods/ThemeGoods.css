@@ -12,15 +12,16 @@
 }
 
 .theme-goods_list {
-    overflow: hidden;
+    overflow-x: scroll;
     list-style: none;
     display: flex;
     gap: 12px;
+    -ms-overflow-style: none;
+    scrollbar-width: 0;
 }
 
-.theme-goods_list li {
-    position: relative;
-    transition: left 0.35s ease-in;
+.theme-goods_list::-webkit-scrollbar {
+    display: none;
 }
 
 .mover_left {

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -99,7 +99,7 @@ const Reviews = ({ goods }) => {
   };
 
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>{`Reviews for ${product.name} – devShop`}</title>
       </Helmet>
@@ -208,7 +208,7 @@ const Reviews = ({ goods }) => {
           ))}
         </ul>
       </div>
-    </>
+    </HelmetProvider>
   );
 };
 
