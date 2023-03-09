@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 import "./Rating.css";
@@ -26,6 +27,7 @@ const Rating = ({ rating, number, needNumber }) => {
       />
     );
   };
+
   return (
     <div className="rating">
       <div className="rating_stars">
@@ -52,4 +54,4 @@ Rating.propTypes = {
   needNumber: PropTypes.bool,
 };
 
-export default Rating;
+export default React.memo(Rating);

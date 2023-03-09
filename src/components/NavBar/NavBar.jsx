@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -78,10 +79,10 @@ const NavBar = ({ goodsNumber, setMode, mode }) => {
   );
 };
 
+export default React.memo(NavBar);
+
 NavBar.propTypes = {
   goodsNumber: PropTypes.number,
   setMode: PropTypes.func,
   mode: PropTypes.string,
 };
-
-export default NavBar;

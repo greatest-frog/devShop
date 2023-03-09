@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 import "./OnTop.css";
@@ -16,7 +17,7 @@ const OnTop = ({ className }) => {
   );
 };
 
-export default OnTop;
+export default React.memo(OnTop);
 
 OnTop.propTypes = {
   className: PropTypes.string,

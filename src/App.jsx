@@ -1,17 +1,36 @@
-import { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  Suspense,
+} from "react";
 import { Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import HomePage from "./components/HomePage/HomePage";
-import Shop from "./components/Shop/Shop";
-import Product from "./components/Product/Product";
-import Reviews from "./components/Reviews/Reviews";
-import Cart from "./components/Cart/Cart";
-import About from "./components/About/About";
 import OnTop from "./components/OnTop/OnTop";
+import Loader from "./components/Loader/Loader";
+import lazyTimerImport from "./lazyTimerImport";
 import "./App.css";
+
+// lazy importing elements
+const HomePage = lazyTimerImport(
+  import("./components/HomePage/HomePage.jsx"),
+  300
+);
+const Shop = lazyTimerImport(import("./components/Shop/Shop.jsx"), 300);
+const Product = lazyTimerImport(
+  import("./components/Product/Product.jsx"),
+  300
+);
+const Reviews = lazyTimerImport(
+  import("./components/Reviews/Reviews.jsx"),
+  300
+);
+const Cart = lazyTimerImport(import("./components/Cart/Cart.jsx"), 300);
+const About = lazyTimerImport(import("./components/About/About.jsx"), 300);
 
 function App({ goods }) {
   useEffect(() => {
@@ -34,13 +53,19 @@ function App({ goods }) {
       : "light"
   );
 
-  const addGoods = async (id) => {
-    if (!cart.hasOwnProperty(id)) {
-      const newCart = await JSON.parse(JSON.stringify(cart));
-      newCart[id] = { id, amount: 1, active: true };
+  const cartRef = useRef();
+
+  cartRef.current = cart;
+
+  const addGoods = useCallback((id) => {
+    if (!cartRef?.current?.hasOwnProperty(id)) {
+      const newCart = Object.assign(
+        { [id]: { id, amount: 1, active: true } },
+        cartRef.current
+      );
       setCart(newCart);
     }
-  };
+  }, []);
 
   window.onscroll = () => {
     if (window.scrollY >= 100) {
@@ -58,29 +83,31 @@ function App({ goods }) {
         mode={mode}
       />
       <main>
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage goods={goods} addGoods={addGoods} />}
-          />
-          <Route
-            path="/shop"
-            element={<Shop goods={goods} addGoods={addGoods} />}
-          />
-          <Route
-            path="/shop/:productId"
-            element={<Product goods={goods} addGoods={addGoods} />}
-          />
-          <Route
-            path="/shop/:productId/reviews"
-            element={<Reviews goods={goods} />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart goods={goods} cart={cart} setCart={setCart} />}
-          />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage goods={goods} addGoods={addGoods} />}
+            />
+            <Route
+              path="/shop"
+              element={<Shop goods={goods} addGoods={addGoods} />}
+            />
+            <Route
+              path="/shop/:productId"
+              element={<Product goods={goods} addGoods={addGoods} />}
+            />
+            <Route
+              path="/shop/:productId/reviews"
+              element={<Reviews goods={goods} />}
+            />
+            <Route
+              path="/cart"
+              element={<Cart goods={goods} cart={cart} setCart={setCart} />}
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Suspense>
         <div className="button-space"></div>
         {<OnTop className={appear ? "visible" : "invisible"} />}
       </main>
@@ -88,6 +115,8 @@ function App({ goods }) {
     </div>
   );
 }
+
+export default App;
 
 App.propTypes = {
   goods: PropTypes.objectOf(
@@ -100,5 +129,3 @@ App.propTypes = {
     )
   ),
 };
-
-export default App;

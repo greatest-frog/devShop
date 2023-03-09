@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -37,11 +38,13 @@ const GoodCard = ({ data, addGoods }) => {
           )}
           <div className="product-price">{`${data.price}${data.currency}`}</div>
         </div>
-        <AddToCart addGoods={addGoods} productId={data.id} />
+        <AddToCart productId={data.id} addGoods={addGoods} />
       </div>
     </div>
   );
 };
+
+export default React.memo(GoodCard);
 
 GoodCard.propTypes = {
   data: PropTypes.objectOf(
@@ -49,5 +52,3 @@ GoodCard.propTypes = {
   ),
   addGoods: PropTypes.func,
 };
-
-export default GoodCard;

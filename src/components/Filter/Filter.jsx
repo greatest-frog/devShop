@@ -163,6 +163,8 @@ const Filter = ({ className, filters, setFilters }) => {
   );
 };
 
+export default Filter;
+
 Filter.propTypes = {
   className: PropTypes.string,
   filters: PropTypes.objectOf(
@@ -176,5 +178,3 @@ Filter.propTypes = {
   ),
   setFilters: PropTypes.func,
 };
-
-export default Filter;

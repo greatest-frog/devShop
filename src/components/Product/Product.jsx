@@ -10,7 +10,7 @@ import { average } from "../../objectFunctions";
 import "./Product.css";
 import "./DarkProduct.css";
 
-const Product = ({ goods, addGoods }) => {
+const Product = ({ goods }) => {
   const product = goods[useParams().productId];
   const location = useLocation();
   return (
@@ -38,7 +38,7 @@ const Product = ({ goods, addGoods }) => {
             )}
             <div className="product-price">{`${product.price}${product.currency}`}</div>
           </div>
-          <AddToCart addGoods={addGoods} productId={product.id} />
+          <AddToCart productId={product.id} />
         </div>
         <div className="product_information">
           <div className="product_description">

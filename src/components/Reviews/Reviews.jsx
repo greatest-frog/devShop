@@ -50,9 +50,11 @@ const sorts = {
 
 const Reviews = ({ goods }) => {
   const params = useParams();
-  const product = goods[params.productId];
+
   const [filters, setFilters] = useState({});
   const [sorting, setSorting] = useState("featured");
+
+  const product = goods[params.productId];
 
   const fitFilters = (obj) => {
     for (const [filterProp, value] of Object.entries(filters)) {

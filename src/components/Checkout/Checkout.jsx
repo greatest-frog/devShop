@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 import "./Checkout.css";
@@ -20,7 +21,7 @@ const Checkout = ({ amount, sum, currency }) => {
   );
 };
 
-export default Checkout;
+export default React.memo(Checkout);
 
 Checkout.propTypes = {
   getAmount: PropTypes.func,

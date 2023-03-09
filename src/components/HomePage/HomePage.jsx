@@ -1,31 +1,32 @@
-import { useEffect } from "react";
+import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
-const HomePage = ({ goods, addGoods }) => {
-  useEffect(() => {
-    document.title = "devShop – Home";
-    return () => {
-      document.title = "devShop";
-    };
-  }, []);
-
+const HomePage = ({ addGoods, goods }) => {
   return (
-    <div className="home">
-      <div className="homepage-intro">
-        <h2>Welcome to devShop</h2>
-        <div className="homepage-intro_description">
-          Here you can buy computer parts and accessories. We have a wide range
-          and low prices.
+    <HelmetProvider>
+      <Helmet>
+        <title>devShop – Home</title>
+      </Helmet>
+      <div className="home">
+        <div className="homepage-intro">
+          <h2>Welcome to devShop</h2>
+          <div className="homepage-intro_description">
+            Here you can buy computer parts and accessories. We have a wide
+            range and low prices.
+          </div>
         </div>
+        <ThemeGoods name="New" goods={goods} addGoods={addGoods} />
+        <ThemeGoods name="Sale" goods={goods} addGoods={addGoods} />
       </div>
-      <ThemeGoods goods={goods} name="New" addGoods={addGoods} />
-      <ThemeGoods goods={goods} name="Sale" addGoods={addGoods} />
-    </div>
+    </HelmetProvider>
   );
 };
+
+export default React.memo(HomePage);
 
 HomePage.propTypes = {
   goods: PropTypes.objectOf(
@@ -39,5 +40,3 @@ HomePage.propTypes = {
   ),
   addGoods: PropTypes.func,
 };
-
-export default HomePage;

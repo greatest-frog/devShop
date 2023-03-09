@@ -14,8 +14,8 @@ const CartIcon = ({ goodsNumber }) => {
   );
 };
 
+export default CartIcon;
+
 CartIcon.propTypes = {
   goodsNumber: PropTypes.number,
 };
-
-export default CartIcon;

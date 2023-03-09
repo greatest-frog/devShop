@@ -8,7 +8,7 @@ const Counter = ({ amount, max, itemId, setAmount }) => {
       <button
         className="btn_counter-minus"
         disabled={amount === 1}
-        onClick={() => setAmount(amount - 1)}
+        onClick={() => setAmount(itemId, amount - 1)}
       >
         -
       </button>
@@ -24,11 +24,11 @@ const Counter = ({ amount, max, itemId, setAmount }) => {
             setAmount(itemId, count);
           } else {
             if (count < 1) {
-              setAmount(1);
+              setAmount(itemId, 1);
             } else if (count > max) {
-              setAmount(max);
+              setAmount(itemId, max);
             } else {
-              setAmount(count);
+              setAmount(itemId, count);
             }
           }
         }}
@@ -36,7 +36,7 @@ const Counter = ({ amount, max, itemId, setAmount }) => {
       <button
         className="btn_counter-plus"
         disabled={amount === max}
-        onClick={() => setAmount(amount + 1)}
+        onClick={() => setAmount(itemId, amount + 1)}
       >
         +
       </button>

@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -6,59 +7,78 @@ import "./CartItem.css";
 import "./DarkCartItem.css";
 
 const CartItem = ({
-  goods,
   itemData,
+  cartData,
   setAmount,
   deleteItem,
   selected,
   changeSelect,
 }) => {
-  const item = goods[itemData.id];
-  const amount = itemData.amount;
+  const amount = cartData.amount;
 
   return (
     <div className="cart-item">
       <input
         type="checkbox"
         name="cartItem"
-        value={item.id}
+        value={itemData.id}
         checked={selected}
-        onChange={changeSelect}
+        onChange={() => changeSelect(itemData.id)}
       />
       <Link to={`/shop/${itemData.id}`}>
-        <img src={process.env.PUBLIC_URL + item.src} alt={`${item.name}`} />
+        <img
+          src={process.env.PUBLIC_URL + itemData.src}
+          alt={`${itemData.name}`}
+        />
       </Link>
       <div className="cart-item_info">
         <Link to={`/shop/${itemData.id}`}>
-          <h3 className="cart-item_name">{item.name}</h3>
+          <h3 className="cart-item_name">{itemData.name}</h3>
         </Link>
         <div className="cart-item_info__tools">
-          <button className="btn_delete" onClick={() => deleteItem(item.id)}>
+          <button
+            className="btn_delete"
+            onClick={() => deleteItem(itemData.id)}
+          >
             Delete
           </button>
           <Counter
             amount={amount}
-            max={item.number}
-            itemId={item.id}
+            max={itemData.number}
+            itemId={itemData.id}
             setAmount={setAmount}
           />
         </div>
       </div>
 
       <div className="cart-item_buy-info">
-        <div className="cart-item_price">{`${item.price} ${item.currency}`}</div>
+        <div className="cart-item_price">{`${itemData.price} ${itemData.currency}`}</div>
         <div className="cart-item_available">
-          {item.number > 0 ? `Available: ${item.number} pcs` : `Not available`}
+          {itemData.number > 0
+            ? `Available: ${itemData.number} pcs`
+            : `Not available`}
         </div>
       </div>
     </div>
   );
 };
 
-export default CartItem;
+export default React.memo(CartItem, (p, n) => {
+  // checking are props changed
+  return (
+    p.changeSelect === n.changeSelect &&
+    p.deleteItem === n.deleteItem &&
+    p.itemData === n.itemData &&
+    p.selected === n.selected &&
+    p.setAmount === n.setAmount &&
+    p.cartData.amount === n.cartData.amount &&
+    p.cartData.active === n.active &&
+    p.cartData.id === n.cartData.id
+  );
+});
 
 CartItem.propTypes = {
-  goods: PropTypes.objectOf(
+  itemData: PropTypes.objectOf(
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,
@@ -67,14 +87,11 @@ CartItem.propTypes = {
       ])
     )
   ),
-  itemData: PropTypes.objectOf(
+  cartData: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   ),
   setAmount: PropTypes.func,
   deleteItem: PropTypes.func,
   selected: PropTypes.bool,
-};
-
-CartItem.defaultProps = {
-  selected: true,
+  changeSelect: PropTypes.func,
 };
