@@ -1,8 +1,7 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 
 import { sorted } from "../../functions";
 import Review from "../Review/Review";
@@ -55,6 +54,10 @@ const Reviews = ({ goods }) => {
   const [sorting, setSorting] = useState("featured");
 
   const product = goods[params.productId];
+
+  if (!product) {
+    return <Navigate to="/404" />;
+  }
 
   const fitFilters = (obj) => {
     for (const [filterProp, value] of Object.entries(filters)) {

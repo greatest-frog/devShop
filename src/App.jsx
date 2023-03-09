@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import OnTop from "./components/OnTop/OnTop";
 import Loader from "./components/Loader/Loader";
+import NotFound from "./components/NotFound/NotFound";
 import lazyTimerImport from "./lazyTimerImport";
 import "./App.css";
 
@@ -106,6 +107,7 @@ function App({ goods }) {
               element={<Cart goods={goods} cart={cart} setCart={setCart} />}
             />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <div className="button-space"></div>

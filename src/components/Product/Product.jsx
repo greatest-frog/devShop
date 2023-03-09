@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, useParams, Link, Navigate } from "react-router-dom";
 
 import AddToCart from "../AddToCart/AddToCart";
 import Rating from "../Rating/Rating";
@@ -13,6 +13,11 @@ import "./DarkProduct.css";
 const Product = ({ goods }) => {
   const product = goods[useParams().productId];
   const location = useLocation();
+
+  if (!product) {
+    return <Navigate to="/404" />;
+  }
+
   return (
     <HelmetProvider>
       <Helmet>
