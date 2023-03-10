@@ -24,7 +24,7 @@ const NavBar = ({ goodsNumber, setMode, mode }) => {
     <nav>
       <div className="logo-link">
         <Link to="/">
-          <h1>devShop</h1>
+          <div className="logo">devShop</div>
         </Link>
       </div>
       <ul className="nav-list">

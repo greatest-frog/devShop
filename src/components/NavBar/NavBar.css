@@ -7,7 +7,7 @@ nav {
     gap: 70px;
 }
 
-h1 {
+.logo {
     color: #1f1f1d;
     font-size: 24px;
     font-weight: bold;

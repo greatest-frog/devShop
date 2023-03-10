@@ -1,7 +1,7 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import PropTypes from "prop-types";
 
 import { sorted } from "../../functions";
 import Review from "../Review/Review";
