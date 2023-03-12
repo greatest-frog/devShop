@@ -8,7 +8,7 @@ import AddToCart from "../AddToCart/AddToCart";
 import "./GoodLine.css";
 import "./DarkGoodLine.css";
 
-const GoodLine = ({ data, addGoods }) => {
+const GoodLine = ({ data }) => {
   return (
     <div className="good-line">
       <Link to={`/shop/${data.id}`} className="good-line_photo-link">
@@ -38,7 +38,7 @@ const GoodLine = ({ data, addGoods }) => {
           )}
           <div className="product-price">{`${data.price}${data.currency}`}</div>
         </div>
-        <AddToCart productId={data.id} addGoods={addGoods} />
+        <AddToCart productId={data.id} />
       </div>
     </div>
   );
@@ -50,5 +50,4 @@ GoodLine.propTypes = {
   data: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ),
-  addGoods: PropTypes.func,
 };

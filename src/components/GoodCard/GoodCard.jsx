@@ -8,7 +8,7 @@ import AddToCart from "../AddToCart/AddToCart";
 import "./GoodCard.css";
 import "./DarkGoodCard.css";
 
-const GoodCard = ({ data, addGoods }) => {
+const GoodCard = ({ data }) => {
   return (
     <div className="good-card">
       <Link to={`/shop/${data.id}`} className="good-card_photo-link">
@@ -38,7 +38,7 @@ const GoodCard = ({ data, addGoods }) => {
           )}
           <div className="product-price">{`${data.price}${data.currency}`}</div>
         </div>
-        <AddToCart productId={data.id} addGoods={addGoods} />
+        <AddToCart productId={data.id} />
       </div>
     </div>
   );
@@ -50,5 +50,4 @@ GoodCard.propTypes = {
   data: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ),
-  addGoods: PropTypes.func,
 };

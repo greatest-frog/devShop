@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
 import "./HomePage.css";
 
-const HomePage = ({ addGoods, goods }) => {
+const HomePage = () => {
   return (
     <HelmetProvider>
       <Helmet>
@@ -19,8 +19,8 @@ const HomePage = ({ addGoods, goods }) => {
             range and low prices.
           </div>
         </div>
-        <ThemeGoods name="New" goods={goods} addGoods={addGoods} />
-        <ThemeGoods name="Sale" goods={goods} addGoods={addGoods} />
+        <ThemeGoods name="New" />
+        <ThemeGoods name="Sale" />
       </div>
     </HelmetProvider>
   );

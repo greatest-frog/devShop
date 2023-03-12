@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 
+import goods from "../../mock/mock";
 import { sorted } from "../../functions";
 import Review from "../Review/Review";
 import Rating from "../Rating/Rating";
@@ -47,7 +48,7 @@ const sorts = {
   },
 };
 
-const Reviews = ({ goods }) => {
+const Reviews = () => {
   const params = useParams();
 
   const [filters, setFilters] = useState({});

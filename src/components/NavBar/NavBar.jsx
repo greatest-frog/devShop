@@ -6,7 +6,7 @@ import CartIcon from "../CartIcon/CartIcon";
 import "./NavBar.css";
 import "./DarkNavBar.css";
 
-const NavBar = ({ goodsNumber, setMode, mode }) => {
+const NavBar = ({ setMode, mode }) => {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
@@ -71,7 +71,7 @@ const NavBar = ({ goodsNumber, setMode, mode }) => {
         </li>
         <li className="nav-list_item">
           <Link to="/cart">
-            <CartIcon goodsNumber={goodsNumber} />
+            <CartIcon />
           </Link>
         </li>
       </ul>
@@ -82,7 +82,6 @@ const NavBar = ({ goodsNumber, setMode, mode }) => {
 export default React.memo(NavBar);
 
 NavBar.propTypes = {
-  goodsNumber: PropTypes.number,
   setMode: PropTypes.func,
   mode: PropTypes.string,
 };

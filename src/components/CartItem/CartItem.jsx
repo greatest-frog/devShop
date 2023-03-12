@@ -5,58 +5,50 @@ import { Link } from "react-router-dom";
 import Counter from "../Counter/Counter";
 import "./CartItem.css";
 import "./DarkCartItem.css";
+import goods from "../../mock/mock";
+import { useDispatch } from "react-redux";
+import { changeSelect, deleteItem } from "../../reducers/cartReducer";
 
-const CartItem = ({
-  itemData,
-  cartData,
-  setAmount,
-  deleteItem,
-  selected,
-  changeSelect,
-}) => {
-  const amount = cartData.amount;
+const CartItem = ({ cartData }) => {
+  const {
+    name: itemName,
+    src,
+    number: maxAmount,
+    price,
+    currency,
+  } = goods[cartData.id];
+  const dispatch = useDispatch();
 
   return (
     <div className="cart-item">
       <input
         type="checkbox"
         name="cartItem"
-        value={itemData.id}
-        checked={selected}
-        onChange={() => changeSelect(itemData.id)}
+        checked={cartData.active}
+        onChange={() => dispatch(changeSelect(cartData.id))}
       />
-      <Link to={`/shop/${itemData.id}`}>
-        <img
-          src={process.env.PUBLIC_URL + itemData.src}
-          alt={`${itemData.name}`}
-        />
+      <Link to={`/shop/${cartData.id}`}>
+        <img src={process.env.PUBLIC_URL + src} alt={`${itemName}`} />
       </Link>
       <div className="cart-item_info">
-        <Link to={`/shop/${itemData.id}`}>
-          <h3 className="cart-item_name">{itemData.name}</h3>
+        <Link to={`/shop/${cartData.id}`}>
+          <h3 className="cart-item_name">{itemName}</h3>
         </Link>
         <div className="cart-item_info__tools">
           <button
             className="btn_delete"
-            onClick={() => deleteItem(itemData.id)}
+            onClick={() => dispatch(deleteItem(cartData.id))}
           >
             Delete
           </button>
-          <Counter
-            amount={amount}
-            max={itemData.number}
-            itemId={itemData.id}
-            setAmount={setAmount}
-          />
+          <Counter maxAmount={maxAmount} itemId={cartData.id} />
         </div>
       </div>
 
       <div className="cart-item_buy-info">
-        <div className="cart-item_price">{`${itemData.price} ${itemData.currency}`}</div>
+        <div className="cart-item_price">{`${price} ${currency}`}</div>
         <div className="cart-item_available">
-          {itemData.number > 0
-            ? `Available: ${itemData.number} pcs`
-            : `Not available`}
+          {maxAmount > 0 ? `Available: ${maxAmount} pcs` : `Not available`}
         </div>
       </div>
     </div>

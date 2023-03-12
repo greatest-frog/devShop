@@ -1,14 +1,20 @@
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 
+import { setItemAmount } from "../../reducers/cartReducer";
 import "./Counter.css";
 
-const Counter = ({ amount, max, itemId, setAmount }) => {
+const Counter = ({ maxAmount, itemId }) => {
+  const amount = useSelector(
+    (state) => state.cart.find((item) => item.id === itemId).amount
+  );
+  const dispatch = useDispatch();
   return (
     <div className="counter">
       <button
         className="btn_counter-minus"
         disabled={amount === 1}
-        onClick={() => setAmount(itemId, amount - 1)}
+        onClick={() => dispatch(setItemAmount(itemId, amount - 1))}
       >
         -
       </button>
@@ -16,27 +22,23 @@ const Counter = ({ amount, max, itemId, setAmount }) => {
         type="number"
         name="itemAmount"
         min={1}
-        max={max}
-        value={amount}
+        max={maxAmount}
+        value={isNaN(amount) ? "" : amount}
         onChange={(e) => {
           const count = parseInt(e.target.value);
-          if (isNaN(count)) {
-            setAmount(itemId, count);
+          if (count < 1) {
+            dispatch(setItemAmount(itemId, 1));
+          } else if (count > maxAmount) {
+            dispatch(setItemAmount(itemId, maxAmount));
           } else {
-            if (count < 1) {
-              setAmount(itemId, 1);
-            } else if (count > max) {
-              setAmount(itemId, max);
-            } else {
-              setAmount(itemId, count);
-            }
+            dispatch(setItemAmount(itemId, count));
           }
         }}
       />
       <button
         className="btn_counter-plus"
-        disabled={amount === max}
-        onClick={() => setAmount(itemId, amount + 1)}
+        disabled={amount === maxAmount}
+        onClick={() => dispatch(setItemAmount(itemId, amount + 1))}
       >
         +
       </button>
@@ -47,8 +49,6 @@ const Counter = ({ amount, max, itemId, setAmount }) => {
 export default Counter;
 
 Counter.propTypes = {
-  amount: PropTypes.number,
-  max: PropTypes.number,
+  maxAmount: PropTypes.number,
   itemId: PropTypes.string,
-  setAmount: PropTypes.func,
 };

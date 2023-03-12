@@ -2,6 +2,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 import { useLocation, useParams, Link, Navigate } from "react-router-dom";
 
+import goods from "../../mock/mock";
 import AddToCart from "../AddToCart/AddToCart";
 import Rating from "../Rating/Rating";
 import Review from "../Review/Review";
@@ -10,7 +11,7 @@ import { average } from "../../objectFunctions";
 import "./Product.css";
 import "./DarkProduct.css";
 
-const Product = ({ goods }) => {
+const Product = () => {
   const product = goods[useParams().productId];
   const location = useLocation();
 

@@ -1,12 +1,5 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  Suspense,
-} from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import PropTypes from "prop-types";
 
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -33,7 +26,7 @@ const Reviews = lazyTimerImport(
 const Cart = lazyTimerImport(import("./components/Cart/Cart.jsx"), 300);
 const About = lazyTimerImport(import("./components/About/About.jsx"), 300);
 
-function App({ goods }) {
+function App() {
   useEffect(() => {
     if (
       window.localStorage?.getItem("colorMode") === "dark" ||
@@ -44,7 +37,6 @@ function App({ goods }) {
     }
   }, []);
 
-  const [cart, setCart] = useState({});
   const [appear, setAppear] = useState(false);
   const [mode, setMode] = useState(
     window.localStorage?.getItem("colorMode")
@@ -53,20 +45,6 @@ function App({ goods }) {
       ? "dark"
       : "light"
   );
-
-  const cartRef = useRef();
-
-  cartRef.current = cart;
-
-  const addGoods = useCallback((id) => {
-    if (!cartRef?.current?.hasOwnProperty(id)) {
-      const newCart = Object.assign(
-        { [id]: { id, amount: 1, active: true } },
-        cartRef.current
-      );
-      setCart(newCart);
-    }
-  }, []);
 
   window.onscroll = () => {
     if (window.scrollY >= 100) {
@@ -78,34 +56,15 @@ function App({ goods }) {
 
   return (
     <div className="App">
-      <NavBar
-        goodsNumber={Object.keys(cart).length}
-        setMode={setMode}
-        mode={mode}
-      />
+      <NavBar setMode={setMode} mode={mode} />
       <main>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route
-              path="/"
-              element={<HomePage goods={goods} addGoods={addGoods} />}
-            />
-            <Route
-              path="/shop"
-              element={<Shop goods={goods} addGoods={addGoods} />}
-            />
-            <Route
-              path="/shop/:productId"
-              element={<Product goods={goods} addGoods={addGoods} />}
-            />
-            <Route
-              path="/shop/:productId/reviews"
-              element={<Reviews goods={goods} />}
-            />
-            <Route
-              path="/cart"
-              element={<Cart goods={goods} cart={cart} setCart={setCart} />}
-            />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:productId" element={<Product />} />
+            <Route path="/shop/:productId/reviews" element={<Reviews />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -119,15 +78,3 @@ function App({ goods }) {
 }
 
 export default App;
-
-App.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.object,
-      ])
-    )
-  ),
-};

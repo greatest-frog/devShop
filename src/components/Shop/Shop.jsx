@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import PropTypes from "prop-types";
 
+import goods from "../../mock/mock";
 import { average, filter } from "../../objectFunctions";
 import Filter from "../Filter/Filter";
 import GoodCard from "../GoodCard/GoodCard";
@@ -70,7 +70,7 @@ const sorts = {
   },
 };
 
-const Shop = ({ goods, addGoods }) => {
+const Shop = () => {
   const [filters, setFilters] = useState({});
   const [form, setForm] = useState("cards");
   const [filtering, setFiltering] = useState(false);
@@ -296,7 +296,7 @@ const Shop = ({ goods, addGoods }) => {
               sorts[sorting]
             ).map((good) => (
               <li key={good.id}>
-                <GoodCard data={good} addGoods={addGoods} />
+                <GoodCard data={good} />
               </li>
             ))}
           {form === "lines" &&
@@ -307,7 +307,7 @@ const Shop = ({ goods, addGoods }) => {
               sorts[sorting]
             ).map((good) => (
               <li key={good.id}>
-                <GoodLine data={good} addGoods={addGoods} />
+                <GoodLine data={good} />
               </li>
             ))}
         </ul>
@@ -317,16 +317,3 @@ const Shop = ({ goods, addGoods }) => {
 };
 
 export default React.memo(Shop);
-
-Shop.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string,
-        PropTypes.number,
-      ])
-    )
-  ),
-  addGoods: PropTypes.func,
-};

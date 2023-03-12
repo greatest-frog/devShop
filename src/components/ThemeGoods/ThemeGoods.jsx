@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
-import { filter, map } from "../../objectFunctions";
 
+import goods from "../../mock/mock";
+import { filter, map } from "../../objectFunctions";
 import GoodCard from "../GoodCard/GoodCard";
 import "./ThemeGoods.css";
 
@@ -13,7 +14,7 @@ function isTouchDevice() {
   );
 }
 
-const ThemeGoods = ({ name, goods, addGoods }) => {
+const ThemeGoods = ({ name }) => {
   const ref = useRef();
 
   const [slider, setSlider] = useState({
@@ -26,7 +27,7 @@ const ThemeGoods = ({ name, goods, addGoods }) => {
 
   const themeGoods = useMemo(
     () => filter(goods, (good) => good.special.has(name.toLowerCase())),
-    [goods, name]
+    [name]
   );
 
   const enableButton = (position) => {
@@ -103,7 +104,7 @@ const ThemeGoods = ({ name, goods, addGoods }) => {
       >
         {map(themeGoods, (data) => (
           <li key={data.id}>
-            <GoodCard data={data} addGoods={addGoods} />
+            <GoodCard data={data} />
           </li>
         ))}
       </ul>
@@ -160,15 +161,5 @@ const ThemeGoods = ({ name, goods, addGoods }) => {
 export default React.memo(ThemeGoods);
 
 ThemeGoods.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string,
-        PropTypes.number,
-      ])
-    )
-  ),
   name: PropTypes.string,
-  addGoods: PropTypes.func,
 };
