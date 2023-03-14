@@ -1,15 +1,20 @@
 import PropTypes from "prop-types";
 
-import { map } from "../../objectFunctions";
-import "./CharacteristicsCategory.css";
 import "./DarkCharacteristicsCategory.css";
 
 const CharacteristicsCategory = ({ category }) => {
+  const chars = (() => {
+    const temp = [];
+    for (let [key, value] of Object.entries(category.chars)) {
+      temp.push(value);
+    }
+    return temp;
+  })();
   return (
     <div className="chars-category">
       <h3>{category.title}</h3>
       <div className="category-list list">
-        {map(category.chars, (char) => (
+        {chars.map((char) => (
           <li key={char.name}>
             <div className="char">{`${char.name}: ${char.value}`}</div>
           </li>

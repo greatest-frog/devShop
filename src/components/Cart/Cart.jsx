@@ -1,13 +1,11 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import CartItem from "../CartItem/CartItem";
 import Checkout from "../Checkout/Checkout";
-import { map } from "../../objectFunctions";
 import "./Cart.css";
-import { useSelector } from "react-redux";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -21,7 +19,7 @@ const Cart = () => {
         <h2>Cart</h2>
         <div className="cart_window">
           <ul className="cart_items list">
-            {map(cart, (item) => {
+            {cart.map((item) => {
               return (
                 <li key={item.id} className="cart_items_item">
                   <CartItem cartData={item} />
@@ -53,21 +51,3 @@ const Cart = () => {
 };
 
 export default React.memo(Cart);
-
-Cart.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.object,
-      ])
-    )
-  ),
-  cart: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
-    )
-  ),
-  setCart: PropTypes.func,
-};

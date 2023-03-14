@@ -7,7 +7,7 @@ import AddToCart from "../AddToCart/AddToCart";
 import Rating from "../Rating/Rating";
 import Review from "../Review/Review";
 import Characteristics from "../Characteristics/Characteristics";
-import { average } from "../../objectFunctions";
+import { average } from "../../functions";
 import "./Product.css";
 import "./DarkProduct.css";
 

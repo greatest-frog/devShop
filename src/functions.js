@@ -34,4 +34,14 @@ const sorted = (arr, comp = () => 1) => {
   );
 };
 
-export { sorted };
+const average = (obj, rule) => {
+  let k = 0;
+  let totalRating = 0;
+  for (const [, data] of Object.entries(obj)) {
+    k += 1;
+    totalRating += rule(data);
+  }
+  return totalRating / k;
+};
+
+export { sorted, average };

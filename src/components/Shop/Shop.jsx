@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import goods from "../../mock/mock";
-import { average, filter } from "../../objectFunctions";
-import Filter from "../Filter/Filter";
+import { average, sorted } from "../../functions";
 import GoodCard from "../GoodCard/GoodCard";
 import GoodLine from "../GoodLine/GoodLine";
-import { sorted } from "../../functions";
 import "./Shop.css";
 import "./DarkShop.css";
 
@@ -71,56 +69,15 @@ const sorts = {
 };
 
 const Shop = () => {
-  const [filters, setFilters] = useState({});
   const [form, setForm] = useState("cards");
-  const [filtering, setFiltering] = useState(false);
   const [sorting, setSorting] = useState("featured");
-
-  const fitFilters = (obj) => {
-    for (const [filterProp, value] of Object.entries(filters)) {
-      let pass = false;
-      if (filterProp === "special") {
-        if (obj.hasOwnProperty("special")) {
-          for (let e of value) {
-            if (!obj.special.has(e)) {
-              pass = true;
-            } else {
-              pass = false;
-              break;
-            }
-          }
-        }
-      } else if (filterProp === "priceRange") {
-        if (
-          obj.hasOwnProperty("price") &&
-          value[0] <= obj.price &&
-          (value[1] === "Inf" || obj.price <= value[1])
-        ) {
-          pass = true;
-        }
-      } else if (value instanceof Array) {
-        if (obj.hasOwnProperty(filterProp)) {
-          if (value.length === 0) {
-            pass = true;
-          }
-          for (let e of value) {
-            if (obj[filterProp] === e) {
-              pass = true;
-              break;
-            }
-          }
-        }
-      } else {
-        if (obj.hasOwnProperty(filterProp) && obj[filterProp] === value) {
-          pass = true;
-        }
-      }
-      if (!pass) {
-        return false;
-      }
+  const goodsArray = (() => {
+    let temp = [];
+    for (let [key, value] of Object.entries(goods)) {
+      temp.push(value);
     }
-    return true;
-  };
+    return temp;
+  })();
 
   return (
     <HelmetProvider>
@@ -255,57 +212,21 @@ const Shop = () => {
                   </svg>
                 )}
               </button>
-              {/*<button
-                onClick={() => {
-                  if (filtering) {
-                    setFiltering(false);
-                  } else {
-                    setFiltering(true);
-                  }
-                }}
-                className="btn_filter"
-              >
-                Filters
-                {filtering ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                  </svg>
-                )}
-                </button>*/}
             </div>
           </div>
-          <Filter
-            filters={filters}
-            setFilters={setFilters}
-            className={`${!filtering ? "disabled" : ""}`}
-          />
         </div>
         {/* TODO pagination */}
         <ul
           className={`shop_items ${form === "cards" ? "cards" : "lines"} list`}
         >
           {form === "cards" &&
-            sorted(
-              Object.entries(filter(goods, (good) => fitFilters(good))).map(
-                (ent) => ent[1]
-              ),
-              sorts[sorting]
-            ).map((good) => (
+            sorted(goodsArray, sorts[sorting]).map((good) => (
               <li key={good.id}>
                 <GoodCard data={good} />
               </li>
             ))}
           {form === "lines" &&
-            sorted(
-              Object.entries(filter(goods, (good) => fitFilters(good))).map(
-                (ent) => ent[1]
-              ),
-              sorts[sorting]
-            ).map((good) => (
+            sorted(goodsArray, sorts[sorting]).map((good) => (
               <li key={good.id}>
                 <GoodLine data={good} />
               </li>

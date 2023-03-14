@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { average } from "../../objectFunctions";
+import { average } from "../../functions";
 import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
 import "./GoodCard.css";

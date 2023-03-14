@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 
 import goods from "../../mock/mock";
-import { filter, map } from "../../objectFunctions";
 import GoodCard from "../GoodCard/GoodCard";
 import "./ThemeGoods.css";
 
@@ -25,18 +24,23 @@ const ThemeGoods = ({ name }) => {
     lastScrollX: 0,
   });
 
-  const themeGoods = useMemo(
-    () => filter(goods, (good) => good.special.has(name.toLowerCase())),
-    [name]
-  );
+  const themeGoods = useMemo(() => {
+    const temp = [];
+    for (let [key, value] of Object.entries(goods)) {
+      if (value.special.has(name.toLowerCase())) {
+        temp.push(value);
+      }
+    }
+    return temp;
+  }, [name]);
 
   const enableButton = (position) => {
     if (window.matchMedia("(max-width: 850px)").matches) {
-      return Object.getOwnPropertyNames(themeGoods).length - 2 > position;
+      return themeGoods.length - 2 > position;
     } else if (window.matchMedia("(max-width: 1250px)").matches) {
-      return Object.getOwnPropertyNames(themeGoods).length - 3 > position;
+      return themeGoods.length - 3 > position;
     }
-    return Object.getOwnPropertyNames(themeGoods).length - 4 > position;
+    return themeGoods.length - 4 > position;
   };
 
   const getShift = (position) => {
@@ -48,7 +52,7 @@ const ThemeGoods = ({ name }) => {
       return position * 262;
     }
     return position !== 0 &&
-      position === Object.getOwnPropertyNames(themeGoods).length - 4
+      position === themeGoods.length - 4
       ? (position - 1) * 262 + 130
       : position * 262;
   };
@@ -102,7 +106,7 @@ const ThemeGoods = ({ name }) => {
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
       >
-        {map(themeGoods, (data) => (
+        {themeGoods.map((data) => (
           <li key={data.id}>
             <GoodCard data={data} />
           </li>
