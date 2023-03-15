@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import goods from "../../mock/mock";
@@ -7,6 +7,14 @@ import GoodCard from "../GoodCard/GoodCard";
 import GoodLine from "../GoodLine/GoodLine";
 import "./Shop.css";
 import "./DarkShop.css";
+
+const goodsArray = (() => {
+  let temp = [];
+  for (let entry of Object.entries(goods)) {
+    temp.push(entry[1]);
+  }
+  return temp;
+})();
 
 //sort comparators
 const sorts = {
@@ -71,13 +79,30 @@ const sorts = {
 const Shop = () => {
   const [form, setForm] = useState("cards");
   const [sorting, setSorting] = useState("featured");
-  const goodsArray = (() => {
-    let temp = [];
-    for (let [key, value] of Object.entries(goods)) {
-      temp.push(value);
+  const [arrayPosition, setArrayPosition] = useState(0);
+  const [displayingArray, setDisplayingArray] = useState([]);
+
+  const scrollHandler = (e) => {
+    const documentNode = e.target.documentElement;
+    if (
+      documentNode.scrollHeight - documentNode.scrollTop - window.innerHeight <
+        100 &&
+      goodsArray.length > arrayPosition * 8
+    ) {
+      setArrayPosition((prev) => prev + 1);
     }
-    return temp;
-  })();
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    setDisplayingArray(goodsArray.slice(0, 8 * (arrayPosition + 1)));
+  }, [arrayPosition]);
 
   return (
     <HelmetProvider>
@@ -215,18 +240,17 @@ const Shop = () => {
             </div>
           </div>
         </div>
-        {/* TODO pagination */}
         <ul
           className={`shop_items ${form === "cards" ? "cards" : "lines"} list`}
         >
           {form === "cards" &&
-            sorted(goodsArray, sorts[sorting]).map((good) => (
+            sorted(displayingArray, sorts[sorting]).map((good) => (
               <li key={good.id}>
                 <GoodCard data={good} />
               </li>
             ))}
           {form === "lines" &&
-            sorted(goodsArray, sorts[sorting]).map((good) => (
+            sorted(displayingArray, sorts[sorting]).map((good) => (
               <li key={good.id}>
                 <GoodLine data={good} />
               </li>

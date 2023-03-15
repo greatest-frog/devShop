@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -9,6 +9,30 @@ import "./Cart.css";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const [arrayPosition, setArrayPosition] = useState(0);
+  const [displayingArray, setDisplayingArray] = useState([]);
+
+  const scrollHandler = (e) => {
+    const documentNode = e.target.documentElement;
+    if (
+      documentNode.scrollHeight - documentNode.scrollTop - window.innerHeight <
+        100 &&
+      cart.length > arrayPosition * 10
+    ) {
+      setArrayPosition((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    setDisplayingArray(cart.slice(0, 10 * (arrayPosition + 1)));
+  }, [cart, arrayPosition]);
 
   return cart.length ? (
     <HelmetProvider>
@@ -19,7 +43,7 @@ const Cart = () => {
         <h2>Cart</h2>
         <div className="cart_window">
           <ul className="cart_items list">
-            {cart.map((item) => {
+            {displayingArray.map((item) => {
               return (
                 <li key={item.id} className="cart_items_item">
                   <CartItem cartData={item} />
