@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import image404 from "./404.png";
-import "./NotFound.css";
+import styles from "./NotFound.module.css";
 
 const NotFound = () => {
   return (
@@ -10,10 +10,16 @@ const NotFound = () => {
       <Helmet>
         <title>404 Not Found – devShop</title>
       </Helmet>
-      <div className="not-found">
-        <img src={image404} alt="Error 404" className="not-found_image" />
-        <h2>Page Not Found</h2>
-        <Link to="/">Back to home</Link>
+      <div className={styles.notFound}>
+        <img
+          src={image404}
+          alt="Error 404"
+          className={styles.notFound__image}
+        />
+        <h2 className={styles.notFound__heading}>Page Not Found</h2>
+        <Link to="/" className={styles.notFound__link}>
+          Back to home
+        </Link>
       </div>
     </HelmetProvider>
   );

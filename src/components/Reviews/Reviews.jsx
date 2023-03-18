@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import goods from "../../mock/mock";
 import { sorted } from "../../functions";
 import Review from "../Review/Review";
 import Rating from "../Rating/Rating";
-import "./Reviews.css";
+import styles from "./Reviews.module.css";
 
 const sorts = {
   featured: (a, b) => 1,
@@ -109,21 +109,19 @@ const Reviews = () => {
       <Helmet>
         <title>{`Reviews for ${product.name} – devShop`}</title>
       </Helmet>
-      <div className="reviews">
-        <h1>
+      <div className={styles.reviews}>
+        <h2 className={styles.reviews__heading_first}>
           <Link to={`/shop/${params.productId}`}>{product.name}</Link> &ndash;
           Reviews
-        </h1>
-
-        <div className="reviews_info_line">
-          <h2>
+        </h2>
+        <div className={styles.reviews__info_line}>
+          <h3 className={styles.reviews__heading_second}>
             {Object.keys(product.reviews).length === 1
               ? `1 review`
               : `${Object.keys(product.reviews).length} reviews`}
-          </h2>
+          </h3>
           <div className="reviews_tools">
             <select
-              name="reviewSorting"
               id="reviewSorting"
               value={sorting}
               onChange={(e) => setSorting(e.target.value)}
@@ -135,10 +133,10 @@ const Reviews = () => {
             </select>
           </div>
         </div>
-        <div className="reviews-filter">
-          <ul className="list reviews-filter_list">
-            <li className="list_item__rating">
-              <label>
+        <div className="reviews__filter">
+          <ul className={classNames(styles.reviews__filterList, "list")}>
+            <li className="list__item_rating">
+              <label className={styles.rating_label}>
                 <input
                   type="checkbox"
                   name="rating"
@@ -150,7 +148,7 @@ const Reviews = () => {
               </label>
             </li>
             <li className="list_item__rating">
-              <label>
+              <label className={styles.rating_label}>
                 <input
                   type="checkbox"
                   name="rating"
@@ -162,7 +160,7 @@ const Reviews = () => {
               </label>
             </li>
             <li className="list_item__rating">
-              <label>
+              <label className={styles.rating_label}>
                 <input
                   type="checkbox"
                   name="rating"
@@ -174,7 +172,7 @@ const Reviews = () => {
               </label>
             </li>
             <li className="list_item__rating">
-              <label>
+              <label className={styles.rating_label}>
                 <input
                   type="checkbox"
                   name="rating"
@@ -187,7 +185,7 @@ const Reviews = () => {
             </li>
 
             <li className="list_item__rating">
-              <label>
+              <label className={styles.rating_label}>
                 <input
                   type="checkbox"
                   name="rating"
@@ -201,14 +199,14 @@ const Reviews = () => {
           </ul>
         </div>
         {/* TODO pagination */}
-        <ul className="reviews_list list">
+        <ul className={classNames(styles.reviews__list, "list")}>
           {sorted(
             Object.entries(product.reviews)
               .map((entry) => entry[1])
               .filter((review) => fitFilters(review)),
             sorts[sorting]
           ).map((review) => (
-            <li key={review.id}>
+            <li key={review.id} className={styles.reviews__list_item}>
               <Review review={review} />
             </li>
           ))}
@@ -219,15 +217,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
-Reviews.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string,
-        PropTypes.number,
-      ])
-    )
-  ),
-};

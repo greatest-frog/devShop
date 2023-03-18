@@ -1,16 +1,19 @@
-.btn_on-top {
-    background-color: #ff8539;
+.button_onTop {
+    background-color: var(--hover-color);
+
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    
     width: 60px;
     height: 60px;
     border: none;
     border-radius: 50%;
+
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 0.15s ease-in;
-}
 
-.btn_on-top:hover {
-    background-color: #ff8539;
+    transition: 0.15s ease-in;
 }

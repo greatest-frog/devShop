@@ -1,24 +1,24 @@
 import PropTypes from "prop-types";
 
 import CharacteristicsCategory from "../CharacteristicsCategory/CharacteristicsCategory";
-import "./Characteristics.css";
+import styles from "./Characteristics.module.css";
 
 const Characteristics = ({ product }) => {
   const cats = (() => {
     const temp = [];
-    for (let [key, value] of Object.entries(product.characteristics)) {
-      temp.push(value);
+    for (let entry of Object.entries(product.characteristics)) {
+      temp.push(entry[1]);
     }
     return temp;
   })();
   return product ? (
-    <div className="characteristics">
+    <div className={styles.characteristics}>
       {cats.map((cat) => (
         <CharacteristicsCategory category={cat} key={cat.title} />
       ))}
     </div>
   ) : (
-    <div className="characteristics">
+    <div className={styles.characteristics}>
       <h2>Characteristics not yet available</h2>
     </div>
   );

@@ -1,5 +1,4 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import PropTypes from "prop-types";
 import { useLocation, useParams, Link, Navigate } from "react-router-dom";
 
 import goods from "../../mock/mock";
@@ -8,8 +7,7 @@ import Rating from "../Rating/Rating";
 import Review from "../Review/Review";
 import Characteristics from "../Characteristics/Characteristics";
 import { average } from "../../functions";
-import "./Product.css";
-import "./DarkProduct.css";
+import styles from "./Product.module.css";
 
 const Product = () => {
   const product = goods[useParams().productId];
@@ -24,15 +22,18 @@ const Product = () => {
       <Helmet>
         <title>{`${product.name} – devShop`}</title>
       </Helmet>
-      <div className="product">
-        <div className="product_main">
-          <h1>{product.name}</h1>
+      <div className={styles.product}>
+        <div className={styles.product__main}>
+          <h2 className={styles.product__heading_first}>{product.name}</h2>
           <img
             src={process.env.PUBLIC_URL + product.src}
             alt={product.name}
-            className="product-image"
+            className={styles.product__image}
           />
-          <Link to={`${location.pathname}/reviews`}>
+          <Link
+            to={`${location.pathname}/reviews`}
+            className={styles.product__main_link}
+          >
             <Rating
               rating={average(product.reviews, (element) => element.rating)}
               number={Object.getOwnPropertyNames(product.reviews).length}
@@ -46,28 +47,31 @@ const Product = () => {
           </div>
           <AddToCart productId={product.id} />
         </div>
-        <div className="product_information">
-          <div className="product_description">
-            <h2>Description</h2>
-            <article>{product.description}</article>
+        <div className={styles.product__info}>
+          <div className="product__info_description">
+            <h3 className={styles.product__heading_second}>Description</h3>
+            <article className={styles.product__info_article}>
+              {product.description}
+            </article>
           </div>
           <div className="product_characteristics">
-            <h2>Characteristics</h2>
+            <h3>Characteristics</h3>
             <Characteristics product={product} />
           </div>
-          <div className="product_reviews">
-            <h2>Reviews</h2>
+          <div className={styles.product__reviews}>
+            <h3 className={styles.product__heading_second}>Reviews</h3>
             {Object.keys(product.reviews).length && (
               <Review
                 review={product.reviews[Object.keys(product.reviews)[0]]}
               />
             )}
-            <div className="btn-wrapper">
-              <div className="btn-link">
-                <Link to={`${location.pathname}/reviews`}>
-                  View more reviews
-                </Link>
-              </div>
+            <div className={styles.product__link_wrapper}>
+              <Link
+                to={`${location.pathname}/reviews`}
+                className={styles.product__link}
+              >
+                View more reviews
+              </Link>
             </div>
           </div>
         </div>
@@ -77,16 +81,3 @@ const Product = () => {
 };
 
 export default Product;
-
-Product.propTypes = {
-  goods: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.object,
-      ])
-    )
-  ),
-  addGoods: PropTypes.func,
-};

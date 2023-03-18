@@ -1,13 +1,13 @@
-.chars-category h3 {
+.category__heading {
     margin-bottom: 5px;
 }
 
-.category-list {
+.category__list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .char {
-    color: #333333;
+    color: var(--second-font-color);
 }

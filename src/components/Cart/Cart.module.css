@@ -1,20 +1,20 @@
-.cart h2 {
+.cart__heading {
     font-size: 30px;
 }
 
-.cart_window {
+.cart__window {
     padding: 20px;
     display: flex;
     gap: 20px;
 }
 
-.cart_items {
+.cart__items {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.empty-cart {
+.cart_empty {
     text-align: center;
     font-size: 22px;
     display: flex;
@@ -23,16 +23,16 @@
     gap: 20px;
 }
 
-.empty-cart h3 {
+.cart_empty_heading {
     font-size: 30px;
 }
 
-.to_shop_link {
+.link {
     text-decoration: underline;
 }
 
 @media screen and (max-width: 1250px) {
-    .cart_window {
+    .cart__window {
         flex-direction: column-reverse;
         align-items: center;
     }

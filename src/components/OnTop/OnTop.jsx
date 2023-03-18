@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import "./OnTop.css";
+import styles from "./OnTop.module.css";
 
 const OnTop = ({ className }) => {
   return (
     <button
-      className={className ? `btn_on-top ${className}` : "btn_on-top"}
+      className={
+        className
+          ? classNames(styles.button_onTop, className)
+          : styles.button_onTop
+      }
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       <img
@@ -21,8 +26,4 @@ export default React.memo(OnTop);
 
 OnTop.propTypes = {
   className: PropTypes.string,
-};
-
-OnTop.defaultProps = {
-  className: "",
 };

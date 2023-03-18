@@ -1,26 +1,26 @@
-nav {
+.nav {
+    width: 100%;
     padding: 10px 30px;
-    border-bottom: 1px solid #b3a9a9;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 70px;
 }
 
-.logo {
-    color: #1f1f1d;
+.nav__logo {
+    color: var(--main-color);
     font-size: 24px;
     font-weight: bold;
 }
 
-.nav-list {
-    list-style: none;
+.nav__list {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.btn_toggle-mode {
+.button_toggle {
     background-color: transparent;
     width: 24px;
     height: 24px;
@@ -32,10 +32,10 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-    nav {
+    .nav {
         gap: 45px;
     }
-    .nav-list {
+    .nav__list {
         gap: 15px;
     }
 }

@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer_text">Project by greatest-frog</div>
+    <footer className={styles.footer}>
+      <div className="footer__text">Project by greatest-frog</div>
       <a
         href="https://github.com/greatest-frog"
         target="_blank"
@@ -16,7 +16,7 @@ const Footer = () => {
             process.env.PUBLIC_URL + "/resources/images/github-logo-white.svg"
           }
           alt="github"
-          className="github__logo"
+          className={styles.footer__logo_github}
         />
       </a>
     </footer>

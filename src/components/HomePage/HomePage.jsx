@@ -3,7 +3,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 
 import ThemeGoods from "../ThemeGoods/ThemeGoods";
-import "./HomePage.css";
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
@@ -11,10 +11,10 @@ const HomePage = () => {
       <Helmet>
         <title>devShop – Home</title>
       </Helmet>
-      <div className="home">
-        <div className="homepage-intro">
-          <h2>Welcome to devShop</h2>
-          <div className="homepage-intro_description">
+      <div className={styles.homepage}>
+        <div className={styles.homepage__intro}>
+          <h2 className={styles.homepage__heading}>Welcome to devShop</h2>
+          <div className={styles.homepage__intro_description}>
             Here you can buy computer parts and accessories. We have a wide
             range and low prices.
           </div>

@@ -1,4 +1,4 @@
-footer {
+.footer {
     color: #f5f5f5;
     background-color: #1f1f1d;
     width: 100%;
@@ -10,6 +10,6 @@ footer {
     border-top: 1px solid #e5e7eb;
 }
 
-.github__logo {
+.footer__logo_github {
     width: 24px;
 }

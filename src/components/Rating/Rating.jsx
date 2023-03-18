@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./Rating.css";
+import styles from "./Rating.module.css";
 
 const Rating = ({ rating, number, needNumber }) => {
   const getStar = (rating) => {
@@ -29,8 +29,8 @@ const Rating = ({ rating, number, needNumber }) => {
   };
 
   return (
-    <div className="rating">
-      <div className="rating_stars">
+    <div className={styles.rating}>
+      <div className={styles.rating__stars}>
         {getStar(rating)}
         {getStar(rating - 1)}
         {getStar(rating - 2)}

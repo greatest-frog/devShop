@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 import CartItem from "../CartItem/CartItem";
 import Checkout from "../Checkout/Checkout";
-import "./Cart.css";
+import styles from "./Cart.module.css";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -40,9 +41,9 @@ const Cart = () => {
         <title>Cart – devShop</title>
       </Helmet>
       <div className="cart">
-        <h2>Cart</h2>
-        <div className="cart_window">
-          <ul className="cart_items list">
+        <h2 className={styles.cart__heading}>Cart</h2>
+        <div className={styles.cart__window}>
+          <ul className={classNames(styles.cart__items, "list")}>
             {displayingArray.map((item) => {
               return (
                 <li key={item.id} className="cart_items_item">
@@ -60,11 +61,11 @@ const Cart = () => {
       <Helmet>
         <title>Cart – devShop</title>
       </Helmet>
-      <div className="empty-cart">
-        <h3>Your cart is empty now.</h3>
+      <div className={styles.cart_empty}>
+        <h3 className={styles.cart_empty_heading}>Your cart is empty now.</h3>
         <div className="to_shop">
           You can choose something{" "}
-          <Link to="/shop" className="to_shop_link">
+          <Link to="/shop" className={styles.link}>
             here
           </Link>
           .

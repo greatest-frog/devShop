@@ -1,20 +1,20 @@
-.shop_info {
+.shop__info {
     margin-bottom: 20px;
 }
 
-.shop_info_line {
+.shop__info_line {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.shop_tools {
+.shop__tools {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.btn_form-changer {
+.button_formChange {
     background: transparent;
     width: 32px;
     height: 32px;
@@ -22,36 +22,11 @@
     cursor: pointer;
 }
 
-.btn_form-changer svg {
-    fill: #1f1f1d;
+.button_formChange__svgWrapper {
+    fill: var(--main-color);
 }
 
-.btn_filter {
-    color: #1f1f1d;
-    font-size: 24px;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.btn_filter svg {
-    width: 24px;
-    height: 24px;
-    fill: #1f1f1d;
-}
-
-.disabled {
-    display: none;
-}
-
-.shop_items {
-    list-style: none;
-}
-
-.shop_items.cards {
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
     justify-items: center;
@@ -59,19 +34,19 @@
     gap: 20px;
 }
 
-.shop_items.lines {
+.lines {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 @media screen and (max-width: 600px) {
-    .shop_items.cards {
+    .cards {
         grid-template-columns: repeat(auto-fit, 150px);
         gap: 10px;
     }
 
-    .shop_info_line {
+    .shop__info_line {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;

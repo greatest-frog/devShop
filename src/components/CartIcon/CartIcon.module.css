@@ -1,17 +1,17 @@
-.cart-icon {
+.cartIcon {
     position: relative;
     bottom: -4px;
 }
 
-.cart-icon svg {
+.cartIcon_wrapper {
     width: 24px;
     height: 24px;
-    fill: #1f1f1d;
+    fill: var(--main-color);
 }
 
-.goods-number {
-    color: #f5f5f5;
-    background: #1f1f1d;
+.cartIcon__number {
+    color: var(--background-color);
+    background: var(--main-color);
     font-size: 14px;
     line-height: 18px;
     width: 18px;

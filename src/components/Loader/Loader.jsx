@@ -1,13 +1,12 @@
-import "./Loader.css";
-import "./DarkLoader.css";
+import styles from "./Loader.module.css";
 
 const Loader = () => {
   return (
-    <div className="loader">
-      <div className="loader_circle-wrapper">
-        <div className="loader_circle"></div>
+    <div className={styles.loader}>
+      <div className="loader__circle-wrapper">
+        <div className={styles.loader__circle}></div>
       </div>
-      <div className="loader_title">Loading...</div>
+      <div className={styles.loader__title}>Loading...</div>
     </div>
   );
 };

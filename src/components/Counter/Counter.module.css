@@ -1,39 +1,41 @@
 .counter {
     display: flex;
-
 }
 
-.counter input {
+.counter__input {
     font-size: 16px;
+    color: var(--main-color);
+    background-color: var(--background-color);
     width: 50px;
     height: 30px;
     padding: 2px 6px 0 6px;
-    border: 1px solid #b3a9a9;
+    border: 1px solid var(--border-color);
     border-radius: 0;
     display: flex;
     align-items: center;
 }
 
-.counter input:focus {
+.counter__input:focus {
     outline: none;
 }
 
-.btn_counter-minus,
-.btn_counter-plus {
+.button_minus,
+.button_plus {
     font-size: 18px;
+    color: var(--main-color);
     background-color: transparent;
     width: 24px;
     height: 30px;
-    border: 1px solid #b3a9a9;
+    border: 1px solid var(--border-color);
     cursor: pointer;
 }
 
-.btn_counter-minus {
+.button_minus {
     border-right: none;
     border-radius: 7px 0 0 7px;
 }
 
-.btn_counter-plus {
+.button_plus {
     border-left: none;
     border-radius: 0 7px 7px 0;
 }

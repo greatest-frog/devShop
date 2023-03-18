@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Counter from "../Counter/Counter";
-import "./CartItem.css";
-import "./DarkCartItem.css";
+import styles from "./CartItem.module.css";
 import goods from "../../mock/mock";
 import { useDispatch } from "react-redux";
 import { changeSelect, deleteItem } from "../../reducers/cartReducer";
@@ -20,23 +19,28 @@ const CartItem = ({ cartData }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="cart-item">
+    <div className={styles.cartItem}>
       <input
         type="checkbox"
         name="cartItem"
         checked={cartData.active}
         onChange={() => dispatch(changeSelect(cartData.id))}
+        className={styles.cartItem__checkbox}
       />
       <Link to={`/shop/${cartData.id}`}>
-        <img src={process.env.PUBLIC_URL + src} alt={`${itemName}`} />
+        <img
+          className={styles.cartItem__image}
+          src={process.env.PUBLIC_URL + src}
+          alt={`${itemName}`}
+        />
       </Link>
-      <div className="cart-item_info">
+      <div className={styles.cartItem__info}>
         <Link to={`/shop/${cartData.id}`}>
-          <h3 className="cart-item_name">{itemName}</h3>
+          <h3 className={styles.cartItem__heading}>{itemName}</h3>
         </Link>
-        <div className="cart-item_info__tools">
+        <div className={styles.cartItem__info_tools}>
           <button
-            className="btn_delete"
+            className={styles.button_delete}
             onClick={() => dispatch(deleteItem(cartData.id))}
           >
             Delete
@@ -45,9 +49,9 @@ const CartItem = ({ cartData }) => {
         </div>
       </div>
 
-      <div className="cart-item_buy-info">
-        <div className="cart-item_price">{`${price} ${currency}`}</div>
-        <div className="cart-item_available">
+      <div className={styles.cartItem__buyInfo}>
+        <div className={styles.cartItem__price}>{`${price} ${currency}`}</div>
+        <div className="cartItem__available">
           {maxAmount > 0 ? `Available: ${maxAmount} pcs` : `Not available`}
         </div>
       </div>

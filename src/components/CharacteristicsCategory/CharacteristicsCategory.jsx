@@ -1,22 +1,23 @@
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import "./DarkCharacteristicsCategory.css";
+import styles from "./CharacteristicsCategory.module.css";
 
 const CharacteristicsCategory = ({ category }) => {
   const chars = (() => {
     const temp = [];
-    for (let [key, value] of Object.entries(category.chars)) {
-      temp.push(value);
+    for (let entry of Object.entries(category.chars)) {
+      temp.push(entry[1]);
     }
     return temp;
   })();
   return (
-    <div className="chars-category">
-      <h3>{category.title}</h3>
-      <div className="category-list list">
+    <div className={styles.category}>
+      <h3 className={styles.category__heading}>{category.title}</h3>
+      <div className={classNames(styles.category__list, "list")}>
         {chars.map((char) => (
           <li key={char.name}>
-            <div className="char">{`${char.name}: ${char.value}`}</div>
+            <div className={styles.char}>{`${char.name}: ${char.value}`}</div>
           </li>
         ))}
       </div>

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setItemAmount } from "../../reducers/cartReducer";
-import "./Counter.css";
+import styles from "./Counter.module.css";
 
 const Counter = ({ maxAmount, itemId }) => {
   const amount = useSelector(
@@ -10,9 +10,9 @@ const Counter = ({ maxAmount, itemId }) => {
   );
   const dispatch = useDispatch();
   return (
-    <div className="counter">
+    <div className={styles.counter}>
       <button
-        className="btn_counter-minus"
+        className={styles.button_minus}
         disabled={amount === 1}
         onClick={() => dispatch(setItemAmount(itemId, amount - 1))}
       >
@@ -20,7 +20,7 @@ const Counter = ({ maxAmount, itemId }) => {
       </button>
       <input
         type="number"
-        name="itemAmount"
+        className={styles.counter__input}
         min={1}
         max={maxAmount}
         value={isNaN(amount) ? "" : amount}
@@ -36,7 +36,7 @@ const Counter = ({ maxAmount, itemId }) => {
         }}
       />
       <button
-        className="btn_counter-plus"
+        className={styles.button_plus}
         disabled={amount === maxAmount}
         onClick={() => dispatch(setItemAmount(itemId, amount + 1))}
       >

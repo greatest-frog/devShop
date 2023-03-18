@@ -1,17 +1,17 @@
-.theme-goods {
+.themeGoods {
     position: relative;
     padding: 10px;
 }
 
-.theme-goods h3 {
+.themeGoods__heading {
     font-size: 30px;
 }
 
-.theme-goods_name {
+.themeGoods__name {
     margin-bottom: 20px;
 }
 
-.theme-goods_list {
+.themeGoods__list {
     overflow-x: scroll;
     list-style: none;
     display: flex;
@@ -20,31 +20,29 @@
     scrollbar-width: 0;
 }
 
-.theme-goods_list::-webkit-scrollbar {
+.themeGoods__list::-webkit-scrollbar {
     display: none;
 }
 
-.mover_left {
-    position: absolute;
-    top: 75px;
-    left: 10px;
-    width: 65px;
-    height: 290px;
-    display: flex;
-    align-items: center;
-}
-
+.mover_left,
 .mover_right {
     position: absolute;
     top: 75px;
-    right: 10px;
     width: 65px;
     height: 290px;
     display: flex;
     align-items: center;
 }
 
-.btn_mover {
+.mover_left {
+    left: 10px;
+}
+
+.mover_right {
+    right: 10px;
+}
+
+.button_mover {
     opacity: 0;
     background: #686868a1;
     width: 50px;
@@ -55,13 +53,13 @@
     transition: 0.15s ease-in;
 }
 
-.mover_right:hover .btn_mover,
-.mover_left:hover .btn_mover {
+.mover_right:hover .button_mover,
+.mover_left:hover .button_mover {
     opacity: 1;
 }
 
 @media screen and (max-width: 600px) {
-    .theme-goods_list {
+    .themeGoods__list {
         gap: 10px;
     }
 }

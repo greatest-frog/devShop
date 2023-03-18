@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import CartIcon from "../CartIcon/CartIcon";
-import "./NavBar.css";
-import "./DarkNavBar.css";
+import styles from "./NavBar.module.css";
 
 const NavBar = ({ setMode, mode }) => {
   const toggleMode = () => {
@@ -21,13 +21,11 @@ const NavBar = ({ setMode, mode }) => {
     }
   };
   return (
-    <nav>
-      <div className="logo-link">
-        <Link to="/">
-          <div className="logo">devShop</div>
-        </Link>
-      </div>
-      <ul className="nav-list">
+    <nav className={styles.nav}>
+      <Link to="/">
+        <div className={styles.nav__logo}>devShop</div>
+      </Link>
+      <ul className={classNames(styles.nav__list, "list")}>
         <li className="nav-list_item">
           <Link to="/shop">Shop</Link>
         </li>
@@ -35,7 +33,7 @@ const NavBar = ({ setMode, mode }) => {
           <Link to="/about">About</Link>
         </li>
         <li className="nav-list_item">
-          <button className="btn_toggle-mode" onClick={() => toggleMode()}>
+          <button className={styles.button_toggle} onClick={() => toggleMode()}>
             {mode === "light" ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"

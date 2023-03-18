@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 import goods from "../../mock/mock";
 import GoodCard from "../GoodCard/GoodCard";
-import "./ThemeGoods.css";
+import styles from "./ThemeGoods.module.css";
+import classNames from "classnames";
 
 function isTouchDevice() {
   return (
@@ -26,9 +27,9 @@ const ThemeGoods = ({ name }) => {
 
   const themeGoods = useMemo(() => {
     const temp = [];
-    for (let [key, value] of Object.entries(goods)) {
-      if (value.special.has(name.toLowerCase())) {
-        temp.push(value);
+    for (let entry of Object.entries(goods)) {
+      if (entry[1].special.has(name.toLowerCase())) {
+        temp.push(entry[1]);
       }
     }
     return temp;
@@ -51,8 +52,7 @@ const ThemeGoods = ({ name }) => {
     } else if (window.matchMedia("(max-width: 1250px)").matches) {
       return position * 262;
     }
-    return position !== 0 &&
-      position === themeGoods.length - 4
+    return position !== 0 && position === themeGoods.length - 4
       ? (position - 1) * 262 + 130
       : position * 262;
   };
@@ -95,12 +95,12 @@ const ThemeGoods = ({ name }) => {
   });
 
   return (
-    <div className="theme-goods">
-      <div className="theme-goods_name">
-        <h3>{name}</h3>
+    <div className={styles.themeGoods}>
+      <div className={styles.themeGoods__name}>
+        <h3 className={styles.themeGoods__heading}>{name}</h3>
       </div>
       <ul
-        className="theme-goods_list list"
+        className={classNames(styles.themeGoods__list, "list")}
         ref={ref}
         onMouseUp={onMouseUp}
         onMouseDown={onMouseDown}
@@ -113,7 +113,7 @@ const ThemeGoods = ({ name }) => {
         ))}
       </ul>
       {!isTouchDevice() && slider.position > 0 && (
-        <div className="mover mover_left">
+        <div className={styles.mover_left}>
           <button
             onClick={() => {
               ref.current.scrollTo({
@@ -126,7 +126,7 @@ const ThemeGoods = ({ name }) => {
                 position: slider.position - 1,
               });
             }}
-            className="btn_mover"
+            className={styles.button_mover}
           >
             <img
               src={process.env.PUBLIC_URL + "/resources/images/mover-left.png"}
@@ -136,7 +136,7 @@ const ThemeGoods = ({ name }) => {
         </div>
       )}
       {!isTouchDevice() && enableButton(slider.position) && (
-        <div className="mover mover_right">
+        <div className={styles.mover_right}>
           <button
             onClick={() => {
               ref.current.scrollTo({
@@ -149,7 +149,7 @@ const ThemeGoods = ({ name }) => {
                 position: slider.position + 1,
               });
             }}
-            className="btn_mover"
+            className={styles.button_mover}
           >
             <img
               src={process.env.PUBLIC_URL + "/resources/images/mover-right.png"}

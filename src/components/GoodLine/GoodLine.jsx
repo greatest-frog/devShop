@@ -5,26 +5,25 @@ import PropTypes from "prop-types";
 import { average } from "../../functions";
 import Rating from "../Rating/Rating";
 import AddToCart from "../AddToCart/AddToCart";
-import "./GoodLine.css";
-import "./DarkGoodLine.css";
+import styles from "./GoodLine.module.css";
 
 const GoodLine = ({ data }) => {
   return (
-    <div className="good-line">
+    <div className={styles.goodLine}>
       <Link to={`/shop/${data.id}`} className="good-line_photo-link">
         <img
           src={process.env.PUBLIC_URL + data.src}
           alt={data.name}
-          className="good-line_icon"
+          className={styles.goodLine__icon}
         />
       </Link>
-      <div className="good-line_info">
-        <div className="product-name">
+      <div className={styles.goodLine__info}>
+        <div className={styles.goodLine__product_name}>
           <Link to={`/shop/${data.id}`}>
             {data.name.length > 60 ? data.name.slice(0, 57) + "..." : data.name}
           </Link>
         </div>
-        <div className="product-rating">
+        <div className={styles.goodLine__product_rating}>
           <Link to={`/shop/${data.id}/reviews`}>
             <Rating
               rating={average(data.reviews, (element) => element.rating)}
@@ -32,13 +31,17 @@ const GoodLine = ({ data }) => {
             />
           </Link>
         </div>
-        <div className="product-prices">
+        <div className={styles.goodLine__product_prices}>
           {data.previousPrice !== undefined && (
-            <div className="product-price_previous">{`${data.previousPrice}${data.currency}`}</div>
+            <div
+              className={styles.goodLine__product_previous}
+            >{`${data.previousPrice}${data.currency}`}</div>
           )}
-          <div className="product-price">{`${data.price}${data.currency}`}</div>
+          <div className="goodLine__product_now">{`${data.price}${data.currency}`}</div>
         </div>
-        <AddToCart productId={data.id} />
+        <div className={styles.goodLine__button_wrapper}>
+          <AddToCart productId={data.id} />
+        </div>
       </div>
     </div>
   );

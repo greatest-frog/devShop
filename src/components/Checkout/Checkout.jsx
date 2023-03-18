@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 import goods from "../../mock/mock";
-import "./Checkout.css";
-import "./DarkCheckout.css";
+import styles from "./Checkout.module.css";
 
 const Checkout = ({ currency }) => {
   const amount = useSelector((state) =>
@@ -26,17 +25,17 @@ const Checkout = ({ currency }) => {
     }, 0)
   );
   return (
-    <div className="cart_checkout">
+    <div className={styles.checkout}>
       <div className="checkout_total">
-        <div className="checkout_total_title">Total:</div>
-        <div className="checkout_total_info">
-          <div className="total_amount">
+        <div className={styles.checkout__total_title}>Total:</div>
+        <div className={styles.checkout__total_info}>
+          <div className="total_info_amount">
             {amount > 1 ? `${amount} items` : `${amount} item`}
           </div>
-          <div className="total_price">{`${sum} ${currency}`}</div>
+          <div className="total_info_price">{`${sum} ${currency}`}</div>
         </div>
       </div>
-      <button className="btn_checkout">Checkout</button>
+      <button className={styles.button_checkout}>Checkout</button>
     </div>
   );
 };

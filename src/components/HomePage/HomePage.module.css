@@ -1,18 +1,18 @@
-.home h2 {
+.homepage__heading {
     font-size: 32px;
     font-weight: bold;
     color: #1f1f1d;
     margin-bottom: 36px;
 }
 
-.homepage-intro {
+.homepage__intro {
     background: url("./homepage-pattern.png");
     background-repeat: repeat;
     max-width: 100%;
     padding: 55px 70px;
 }
 
-.homepage-intro_description {
+.homepage__intro_description {
     font-size: 24px;
     color: #1f1f1d;
     max-width: 580px;
@@ -20,15 +20,15 @@
 
 
 @media screen and (max-width: 600px) {
-    .home h2 {
+    .homepage__heading {
         font-size: 26px;
         margin-bottom: 15px;
     }
-    .homepage-intro_description {
+    .homepage__intro {
+        padding: 25px 30px;
+    }
+    .homepage__intro_description {
         max-width: 580px;
         font-size: 18px;
-    }
-    .homepage-intro {
-        padding: 25px 30px;
     }
 }
