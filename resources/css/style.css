@@ -11,14 +11,29 @@ body {
     height: 100%;
 }
 
-body {
-    color: #1f1f1d;
-    background: #f5f5f5;
+:root {
+    --background-color: #f5f5f5;
+    --main-color: #1f1f1d;
+    --second-font-color: #333333;
+    --link-color: #2f3946;
+    --hover-color: #ff8539;
+    --border-color: #b3a9a9;
+    --button-border-color: #cbcaca;
+    --button-hover-color: #dfdfdf;
 }
 
 .dark {
-    color: #e5e7eb;
-    background-color: #1f1f1d;
+    --background-color: #1f1f1d;
+    --main-color: #e5e7eb;
+    --second-font-color: #cbcbcb;
+    --link-color: #e5e7eb;
+    --button-border-color: #6a6a6a;
+    --button-hover-color: #3c3c3c;
+}
+
+body {
+    color: var(--main-color);
+    background-color: var(--background-color);
 }
 
 #root,
@@ -28,13 +43,13 @@ body {
 }
 
 a {
-    color: #2f3946;
+    color: var(--link-color);
     text-decoration: none;
     transition: color 0.15s ease-out;
 }
 
 a:hover {
-    color: #ff8539;
+    color: var(--hover-color)
 }
 
 select {
@@ -49,5 +64,9 @@ select {
 }
 
 select:hover {
-    border-color: #ff8539;
+    border-color: var(--hover-color)
+}
+
+.list {
+    list-style: none;
 }
