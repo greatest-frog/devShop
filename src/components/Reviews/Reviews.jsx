@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import classNames from "classnames";
@@ -53,8 +53,33 @@ const Reviews = () => {
 
   const [filters, setFilters] = useState({});
   const [sorting, setSorting] = useState("featured");
+  const [arrayPosition, setArrayPosition] = useState(0);
+  const [displayingArray, setDisplayingArray] = useState([]);
 
   const product = goods[params.productId];
+  const reviews = Object.entries(product.reviews).map((entry) => entry[1]);
+
+  const scrollHandler = (e) => {
+    const documentNode = e.target.documentElement;
+    if (
+      documentNode.scrollHeight - documentNode.scrollTop - window.innerHeight <
+        100 &&
+      reviews?.length > arrayPosition * 8
+    ) {
+      setArrayPosition((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    setDisplayingArray(reviews?.slice(0, 8 * (arrayPosition + 1)));
+  }, [arrayPosition, reviews]);
 
   if (!product) {
     return <Navigate to="/404" />;
@@ -198,12 +223,9 @@ const Reviews = () => {
             </li>
           </ul>
         </div>
-        {/* TODO pagination */}
         <ul className={classNames(styles.reviews__list, "list")}>
           {sorted(
-            Object.entries(product.reviews)
-              .map((entry) => entry[1])
-              .filter((review) => fitFilters(review)),
+            displayingArray.filter((review) => fitFilters(review)),
             sorts[sorting]
           ).map((review) => (
             <li key={review.id} className={styles.reviews__list_item}>
