@@ -4,13 +4,9 @@ import CharacteristicsCategory from "../CharacteristicsCategory/CharacteristicsC
 import styles from "./Characteristics.module.css";
 
 const Characteristics = ({ product }) => {
-  const cats = (() => {
-    const temp = [];
-    for (let entry of Object.entries(product.characteristics)) {
-      temp.push(entry[1]);
-    }
-    return temp;
-  })();
+  const cats = Array.from(
+    Object.entries(product.characteristics).map((entry) => entry[1])
+  );
   return product ? (
     <div className={styles.characteristics}>
       {cats.map((cat) => (

@@ -24,6 +24,7 @@ const Checkout = ({ currency }) => {
       }
     }, 0)
   );
+
   return (
     <div className={styles.checkout}>
       <div className="checkout_total">

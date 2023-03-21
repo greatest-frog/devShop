@@ -74,20 +74,7 @@ export default React.memo(CartItem, (p, n) => {
 });
 
 CartItem.propTypes = {
-  itemData: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.object,
-      ])
-    )
-  ),
   cartData: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   ),
-  setAmount: PropTypes.func,
-  deleteItem: PropTypes.func,
-  selected: PropTypes.bool,
-  changeSelect: PropTypes.func,
 };

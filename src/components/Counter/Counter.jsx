@@ -9,6 +9,7 @@ const Counter = ({ maxAmount, itemId }) => {
     (state) => state.cart.find((item) => item.id === itemId).amount
   );
   const dispatch = useDispatch();
+
   return (
     <div className={styles.counter}>
       <button

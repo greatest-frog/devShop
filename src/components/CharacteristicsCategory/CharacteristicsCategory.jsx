@@ -4,13 +4,9 @@ import classNames from "classnames";
 import styles from "./CharacteristicsCategory.module.css";
 
 const CharacteristicsCategory = ({ category }) => {
-  const chars = (() => {
-    const temp = [];
-    for (let entry of Object.entries(category.chars)) {
-      temp.push(entry[1]);
-    }
-    return temp;
-  })();
+  const chars = Array.from(
+    Object.entries(category.chars).map((entry) => entry[1])
+  );
   return (
     <div className={styles.category}>
       <h3 className={styles.category__heading}>{category.title}</h3>

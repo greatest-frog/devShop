@@ -25,15 +25,11 @@ const ThemeGoods = ({ name }) => {
     lastScrollX: 0,
   });
 
-  const themeGoods = useMemo(() => {
-    const temp = [];
-    for (let entry of Object.entries(goods)) {
-      if (entry[1].special.has(name.toLowerCase())) {
-        temp.push(entry[1]);
-      }
-    }
-    return temp;
-  }, [name]);
+  const themeGoods = Array.from(
+    Object.entries(goods)
+      .filter((entry) => entry[1].special.has(name.toLowerCase()))
+      .map((entry) => entry[1])
+  );
 
   const enableButton = (position) => {
     if (window.matchMedia("(max-width: 850px)").matches) {
@@ -70,7 +66,7 @@ const ThemeGoods = ({ name }) => {
       e.preventDefault();
     }
   };
-
+  //set new position for array slider
   const onMouseMove = (e) => {
     if (
       isTouchDevice() &&

@@ -13,6 +13,7 @@ const Cart = () => {
   const [arrayPosition, setArrayPosition] = useState(0);
   const [displayingArray, setDisplayingArray] = useState([]);
 
+  // sets a new position for the array if there are less than 100 pixels left
   const scrollHandler = (e) => {
     const documentNode = e.target.documentElement;
     if (
@@ -31,6 +32,7 @@ const Cart = () => {
     };
   }, []);
 
+  // makes a slice of the displayed elements
   useEffect(() => {
     setDisplayingArray(cart.slice(0, 10 * (arrayPosition + 1)));
   }, [cart, arrayPosition]);

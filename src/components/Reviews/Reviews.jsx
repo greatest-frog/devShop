@@ -59,6 +59,7 @@ const Reviews = () => {
   const product = goods[params.productId];
   const reviews = Object.entries(product.reviews).map((entry) => entry[1]);
 
+  // sets a new position for the array if there are less than 100 pixels left
   const scrollHandler = (e) => {
     const documentNode = e.target.documentElement;
     if (
@@ -77,6 +78,7 @@ const Reviews = () => {
     };
   }, []);
 
+  // makes a slice of the displayed elements
   useEffect(() => {
     setDisplayingArray(reviews?.slice(0, 8 * (arrayPosition + 1)));
   }, [arrayPosition, reviews]);
