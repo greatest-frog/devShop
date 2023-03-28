@@ -2,10 +2,10 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useLocation, useParams, Link, Navigate } from "react-router-dom";
 
 import goods from "../../mock/mock";
-import AddToCart from "../AddToCart/AddToCart";
-import Rating from "../Rating/Rating";
-import Review from "../Review/Review";
-import Characteristics from "../Characteristics/Characteristics";
+import AddToCart from "../../UI/AddToCart/AddToCart";
+import Rating from "../../UI/Rating/Rating";
+import Review from "../../components/Review/Review";
+import Characteristics from "../../components/Characteristics/Characteristics";
 import { average } from "../../functions";
 import styles from "./Product.module.css";
 

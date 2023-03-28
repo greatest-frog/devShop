@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { average } from "../../functions";
-import Rating from "../Rating/Rating";
-import AddToCart from "../AddToCart/AddToCart";
+import Rating from "../../UI/Rating/Rating";
+import AddToCart from "../../UI/AddToCart/AddToCart";
 import styles from "./GoodLine.module.css";
 
 const GoodLine = ({ data }) => {

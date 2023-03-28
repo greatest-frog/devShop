@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import goods from "../../mock/mock";
-import GoodCard from "../GoodCard/GoodCard";
+import GoodCard from "../../components/GoodCard/GoodCard";
 import styles from "./ThemeGoods.module.css";
 import classNames from "classnames";
 

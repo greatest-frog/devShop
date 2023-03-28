@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import PropTypes from "prop-types";
 
-import ThemeGoods from "../ThemeGoods/ThemeGoods";
+import ThemeGoods from "../../modules/ThemeGoods/ThemeGoods";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {

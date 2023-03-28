@@ -3,28 +3,22 @@ import { Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import OnTop from "./components/OnTop/OnTop";
-import Loader from "./components/Loader/Loader";
-import NotFound from "./components/NotFound/NotFound";
+import OnTop from "./UI/OnTop/OnTop";
+import Loader from "./UI/Loader/Loader";
+import NotFound from "./pages/NotFound/NotFound";
 import lazyTimerImport from "./lazyTimerImport";
 import "./App.css";
 
 // lazy importing elements
-const HomePage = lazyTimerImport(
-  import("./components/HomePage/HomePage.jsx"),
-  300
-);
-const Shop = lazyTimerImport(import("./components/Shop/Shop.jsx"), 300);
+const HomePage = lazyTimerImport(import("./pages/HomePage/HomePage.jsx"), 300);
+const Shop = lazyTimerImport(import("./pages/Shop/Shop.jsx"), 300);
 const Product = lazyTimerImport(
-  import("./components/Product/Product.jsx"),
+  import("./pages/Product/Product.jsx"),
   300
 );
-const Reviews = lazyTimerImport(
-  import("./components/Reviews/Reviews.jsx"),
-  300
-);
-const Cart = lazyTimerImport(import("./components/Cart/Cart.jsx"), 300);
-const About = lazyTimerImport(import("./components/About/About.jsx"), 300);
+const Reviews = lazyTimerImport(import("./pages/Reviews/Reviews.jsx"), 300);
+const Cart = lazyTimerImport(import("./pages/Cart/Cart.jsx"), 300);
+const About = lazyTimerImport(import("./pages/About/About.jsx"), 300);
 
 function App() {
   useEffect(() => {

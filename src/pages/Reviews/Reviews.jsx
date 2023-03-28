@@ -5,8 +5,8 @@ import classNames from "classnames";
 
 import goods from "../../mock/mock";
 import { sorted } from "../../functions";
-import Review from "../Review/Review";
-import Rating from "../Rating/Rating";
+import Review from "../../components/Review/Review";
+import Rating from "../../UI/Rating/Rating";
 import styles from "./Reviews.module.css";
 
 const sorts = {

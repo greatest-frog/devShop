@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import Rating from "../Rating/Rating";
+import Rating from "../../UI/Rating/Rating";
 import styles from "./Review.module.css";
 
 const Review = ({ review }) => {

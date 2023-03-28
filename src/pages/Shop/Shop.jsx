@@ -3,8 +3,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import goods from "../../mock/mock";
 import { average, sorted } from "../../functions";
-import GoodCard from "../GoodCard/GoodCard";
-import GoodLine from "../GoodLine/GoodLine";
+import GoodCard from "../../components/GoodCard/GoodCard";
+import GoodLine from "../../components/GoodLine/GoodLine";
 import styles from "./Shop.module.css";
 import classNames from "classnames";
 

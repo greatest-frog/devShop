@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import classNames from "classnames";
 
-import CartItem from "../CartItem/CartItem";
-import Checkout from "../Checkout/Checkout";
+import CartList from "../../modules/CartList/CartList";
+import Checkout from "../../components/Checkout/Checkout";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
@@ -37,42 +36,33 @@ const Cart = () => {
     setDisplayingArray(cart.slice(0, 10 * (arrayPosition + 1)));
   }, [cart, arrayPosition]);
 
-  return cart.length ? (
+  return (
     <HelmetProvider>
       <Helmet>
         <title>Cart – devShop</title>
       </Helmet>
-      <div className="cart">
-        <h2 className={styles.cart__heading}>Cart</h2>
-        <div className={styles.cart__window}>
-          <ul className={classNames(styles.cart__items, "list")}>
-            {displayingArray.map((item) => {
-              return (
-                <li key={item.id} className="cart_items_item">
-                  <CartItem cartData={item} />
-                </li>
-              );
-            })}
-          </ul>
-          <Checkout currency="$" />
+      {!!cart.length && (
+        <div className="cart">
+          <h2 className={styles.cart__heading}>Cart</h2>
+          <div className={styles.cart__window}>
+            
+            <CartList array={displayingArray} />
+            <Checkout currency="$" />
+          </div>
         </div>
-      </div>
-    </HelmetProvider>
-  ) : (
-    <HelmetProvider>
-      <Helmet>
-        <title>Cart – devShop</title>
-      </Helmet>
-      <div className={styles.cart_empty}>
-        <h3 className={styles.cart_empty_heading}>Your cart is empty now.</h3>
-        <div className="to_shop">
-          You can choose something{" "}
-          <Link to="/shop" className={styles.link}>
-            here
-          </Link>
-          .
+      )}
+      {!cart.length && (
+        <div className={styles.cart_empty}>
+          <h3 className={styles.cart_empty_heading}>Your cart is empty now.</h3>
+          <div className="to_shop">
+            You can choose something{" "}
+            <Link to="/shop" className={styles.link}>
+              here
+            </Link>
+            .
+          </div>
         </div>
-      </div>
+      )}
     </HelmetProvider>
   );
 };

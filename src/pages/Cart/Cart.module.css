@@ -8,12 +8,6 @@
     gap: 20px;
 }
 
-.cart__items {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .cart_empty {
     text-align: center;
     font-size: 22px;
