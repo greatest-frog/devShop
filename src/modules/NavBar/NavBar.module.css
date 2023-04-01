@@ -31,6 +31,16 @@
     cursor: pointer;
 }
 
+.dark {
+    background-image: url("dark.svg");
+    background-size: 24px;
+}
+
+.light {
+    background-image: url("light.svg");
+    background-size: 24px;
+}
+
 @media screen and (max-width: 600px) {
     .nav {
         gap: 45px;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./modules/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import OnTop from "./UI/OnTop/OnTop";
 import Loader from "./UI/Loader/Loader";
@@ -12,10 +12,7 @@ import "./App.css";
 // lazy importing elements
 const HomePage = lazyTimerImport(import("./pages/HomePage/HomePage.jsx"), 300);
 const Shop = lazyTimerImport(import("./pages/Shop/Shop.jsx"), 300);
-const Product = lazyTimerImport(
-  import("./pages/Product/Product.jsx"),
-  300
-);
+const Product = lazyTimerImport(import("./pages/Product/Product.jsx"), 300);
 const Reviews = lazyTimerImport(import("./pages/Reviews/Reviews.jsx"), 300);
 const Cart = lazyTimerImport(import("./pages/Cart/Cart.jsx"), 300);
 const About = lazyTimerImport(import("./pages/About/About.jsx"), 300);
